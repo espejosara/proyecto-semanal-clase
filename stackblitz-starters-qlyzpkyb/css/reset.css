@@ -1,0 +1,64 @@
+/* Reset CSS */
+/* Aplica a todos los elementos y pseudoelementos */
+*, *::before, *::after {
+  margin: 0;              /* quita márgenes por defecto */
+  padding: 0;             /* quita padding por defecto */
+  box-sizing: border-box; /* el width incluye padding y borde */
+}
+
+/* Base del documento */
+html {
+  font-size: 16px;          /* tamaño base para rem */
+  scroll-behavior: smooth;  /* scroll suave en anclas */
+}
+
+/* Base general del texto */
+body {
+  font-family: 'Roboto', sans-serif;     /* fuente principal */
+  line-height: 1.6;                      /* espacio entre líneas */
+  -webkit-font-smoothing: antialiased;   /* mejora renderizado */
+  -moz-osx-font-smoothing: grayscale;    /* mejora renderizado en mac */
+}
+
+/* Títulos sin negrita por defecto */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+/* Enlaces sin subrayado ni color azul automático */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Listas sin puntos ni números */
+ul, ol {
+  list-style: none;
+}
+
+/* Imágenes adaptables y sin hueco debajo */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Formularios con la misma tipografía que el resto */
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Botón neutro, listo para diseñar */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Tabla limpia */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
