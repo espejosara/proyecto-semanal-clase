@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dm1w4w1o8/image/upload/e_background_removal/v1774191326/apple-touch-icon_ifpibc.png">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+  <title>Contacto Sara Espejo</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="logo" href="index.html"><strong>SE</strong></a>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#cheatsheets">Cheatsheets</a></li>
+        <li><a href="index.html#recursos">Recursos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-section">
+      <h1>Contacto</h1>
+      <p class="contact-intro">
+        Si quieres ponerte en contacto conmigo, puedes enviarme un mensaje a través de este formulario.
+      </p>
+
+      <div class="contact-container">
+        <form class="contact-form">
+
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre" 
+              placeholder="Tu nombre"
+              required
+            >
+          </div>
+        
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="tu@email.com"
+              required
+            >
+          </div>
+        
+          <div class="form-group">
+            <label for="asunto">Asunto</label>
+            <input 
+              type="text" 
+              id="asunto" 
+              name="asunto" 
+              placeholder="Motivo del mensaje"
+              required
+            >
+          </div>
+        
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea 
+              id="mensaje" 
+              name="mensaje" 
+              placeholder="Escribe tu mensaje aquí..."
+              required
+            ></textarea>
+          </div>
+        
+          <button type="submit" class="btn-submit">Enviar</button>
+        
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <nav class="footer-nav">
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#cheatsheets">Cheatsheets</a>
+        <a href="index.html#recursos">Recursos</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+  
+      <p>&copy; 2026 Sara Espejo</p>
+      <p>Hecho con <span class="heart">♥</span> y muchas ganas de aprender</p>
+    </div>
+  </footer>
+</body>
+</html>
