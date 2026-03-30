@@ -582,11 +582,24 @@ main {
 }
 
 .polaroid-card figcaption {
-  font-family: "Orbitron", sans-serif;
+  font-family: var(--font-family);
   color: var(--grey-dark);
   font-size: var(--fs-sm);
+  font-style: italic;
+  text-align: center;
+  position: relative;
+  padding-top: 0.5rem;
 }
 
+.polaroid-card figcaption::before {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 2px;
+  background-color: var(--secondary);
+  margin: 0 auto 6px auto;
+  border-radius: 2px;
+}
 .about-block p {
   color: var(--grey-dark);
   line-height: 1.8;
