@@ -259,7 +259,9 @@ main {
   cursor: pointer;
   border: 2px solid transparent;
 }
-
+.btn svg {
+  flex-shrink: 0;
+}
 .btn i,
 .btn svg {
   width: 18px;
