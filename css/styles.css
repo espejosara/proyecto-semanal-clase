@@ -508,12 +508,13 @@ main {
     width: 100%;
     text-align: center;
   }
-
+  
   .btn {
     width: 100%;
-    text-align: center;
+    justify-content: center;
   }
 }
+
 
 /* Responsive footer */
 @media (max-width: 576px) {
