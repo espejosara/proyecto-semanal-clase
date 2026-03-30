@@ -522,3 +522,134 @@ main {
     gap: var(--space-sm);
   }
 }
+
+/* =============== ABOUT PAGE =============== */
+
+.about-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 120px var(--space-lg) var(--space-2xl);
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.about-hero-text h1 {
+  font-size: clamp(2rem, 6vw, var(--fs-5xl));
+  font-weight: var(--font-black);
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+
+.about-hero-text h2 {
+  font-size: clamp(1.25rem, 4vw, var(--fs-2xl));
+  font-weight: var(--font-medium);
+  color: var(--accent);
+  margin-bottom: var(--space-lg);
+}
+
+.about-hero-text p {
+  color: var(--grey-dark);
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+.polaroid-card {
+  background-color: var(--white);
+  padding: var(--space-md);
+  padding-bottom: var(--space-xl);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  transform: rotate(-3deg);
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.polaroid-image {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+}
+
+.polaroid-card figcaption {
+  font-family: "Orbitron", sans-serif;
+  color: var(--grey-dark);
+  font-size: var(--fs-sm);
+}
+
+.about-block p {
+  color: var(--grey-dark);
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+.about-card {
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.about-card h3 {
+  color: var(--primary);
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.about-card p {
+  margin-bottom: 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.value-card {
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-lg);
+}
+
+.value-card h3 {
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+  font-size: var(--fs-xl);
+}
+
+.value-card p {
+  color: var(--grey-dark);
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 120px var(--space-md) var(--space-xl);
+  }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .polaroid-card {
+    transform: rotate(0deg);
+    max-width: 100%;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
