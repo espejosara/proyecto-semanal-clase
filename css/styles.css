@@ -600,6 +600,16 @@ main {
   margin: 0 auto 6px auto;
   border-radius: 2px;
 }
+
+.polaroid-card figcaption::after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 2px;
+  background-color: var(--accent);
+  margin: 6px auto 0 auto;
+  border-radius: 2px;
+}
 .about-block p {
   color: var(--grey-dark);
   line-height: 1.8;
