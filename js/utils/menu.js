@@ -10,12 +10,16 @@ const menu = () => {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    /* Bloquea el scroll del fondo cuando el menú está abierto */
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
   });
 
   links.forEach((link) => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
       navLinks.classList.remove('active');
+      /* Libera el scroll al hacer clic en un enlace */
+      document.body.style.overflow = '';
     });
   });
 };

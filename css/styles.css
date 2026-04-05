@@ -557,18 +557,32 @@ body.dark-mode p a {
   }
 
   .nav-list.active {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 80px;
-  right: 1rem;
-  background-color: var(--white);
-  padding: var(--space-lg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  gap: var(--space-md);
-  z-index: 999;
-}
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: var(--white);
+    padding: 10vh var(--space-lg);
+    align-items: center;
+    gap: var(--space-2xl);
+    z-index: 999;
+    border-radius: 0;
+    box-shadow: none;
+    animation: slideDownMenu 0.3s ease forwards;
+  }
+
+  .nav-list.active a {
+    font-size: var(--fs-2xl);
+    font-weight: var(--font-bold);
+  }
+
+  @keyframes slideDownMenu {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
 
   main {
@@ -856,9 +870,9 @@ body.dark-mode .nav-list a:hover {
 
 /* Arreglo para el menú móvil en modo oscuro */
 body.dark-mode .nav-list.active {
-  background-color: #1e2136;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  background-color: #131521; /* Azul noche para ocupar la pantalla completa fluidamente */
+  border: none;
+  box-shadow: none;
 }
 
 body.dark-mode .logo {
