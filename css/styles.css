@@ -434,7 +434,7 @@ a.btn:focus-visible {
 /* Footer */
 .site-footer {
   background-color: var(--dark);
-  color: var(--grey-light);
+  color: #94a3b8;
   padding: var(--space-xl) var(--space-lg);
   text-align: center;
   margin-top: var(--space-2xl);
@@ -454,7 +454,7 @@ a.btn:focus-visible {
 }
 
 .footer-nav a {
-  color: var(--grey-light);
+  color: #94a3b8;
   font-weight: var(--font-medium);
   transition: color var(--transition-fast);
 }
@@ -498,13 +498,16 @@ p,
 .hero-text p,
 .about-card p,
 .skill-card p,
-.value-card p,
-.footer-content p {
+.value-card p {
   color: #3b3f55; /* stronger contrast than previous grey */
   line-height: 1.9;
   font-size: var(--fs-base);
   letter-spacing: 0.15px;
   margin-bottom: var(--space-md);
+}
+
+.footer-content p {
+  color: #94a3b8;
 }
 
 /* Dark mode paragraphs */

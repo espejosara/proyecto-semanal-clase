@@ -9,6 +9,7 @@ export const header = `
     </div>
 
     <ul class="nav-list" id="nav-links">
+      <li><a href="./index.html">Home</a></li>
       <li><a href="./about.html">About</a></li>
       <li><a href="./index.html#skills">Skills</a></li>
       <li><a href="./index.html#cheatsheets">Cheatsheets</a></li>
@@ -25,6 +26,7 @@ export const header = `
 export const footer = `
   <div class="footer-content">
     <nav class="footer-nav">
+      <a href="./index.html">Home</a>
       <a href="./about.html">About</a>
       <a href="./index.html#skills">Skills</a>
       <a href="./index.html#cheatsheets">Cheatsheets</a>
