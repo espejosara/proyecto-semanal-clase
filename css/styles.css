@@ -171,7 +171,18 @@ nav {
   border-radius: 2px;
   transition: all var(--transition-medium);
 }
+/* Animación hamburguesa activa (forma X) */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
 
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
 /* Main */
 
 main {
@@ -481,6 +492,21 @@ main {
   .nav-list {
     display: none; /* se ocultan los list */
   }
+
+  .nav-list.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  right: 1rem;
+  background-color: var(--white);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  gap: var(--space-md);
+  z-index: 999;
+}
+
 
   main {
     padding: 120px var(--space-md) var(--space-2xl);

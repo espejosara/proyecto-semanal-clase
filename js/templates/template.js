@@ -31,3 +31,18 @@ export const header = `
 
   </nav>
 `;
+
+export const footer = `
+  <div class="footer-content">
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#cheatsheets">Cheatsheets</a>
+      <a href="#recursos">Recursos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <p>&copy; 2026 Sara Espejo</p>
+    <p>Hecho con <span class="heart">♥</span> y muchas ganas de aprender</p>
+  </div>
+`;
