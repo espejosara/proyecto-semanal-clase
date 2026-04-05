@@ -13,25 +13,7 @@
   <title>Mi página web</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <a class="logo" href="index.html"><strong>SE</strong></a>
-
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <ul class="nav-list">
-        <li><a href="about.html">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#cheatsheets">Cheatsheets</a></li>
-        <li><a href="#recursos">Recursos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="header"></div>
 
   <main>
     <section class="hero" id="about">
@@ -90,6 +72,7 @@
 
     <section id="skills" class="section">
       <h2>Skills</h2>
+      <div id="skills-list"></div>
     </section>
     
     <section id="cheatsheets" class="section">
@@ -101,24 +84,13 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-content">
-      <nav class="footer-nav">
-        <a href="about.html">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#cheatsheets">Cheatsheets</a>
-        <a href="#recursos">Recursos</a>
-        <a href="contacto.html">Contacto</a>
-      </nav>
+  <div id="footer"></div>
   
-      <p>&copy; 2026 Sara Espejo</p>
-      <p>Hecho con <span class="heart">♥</span> y muchas ganas de aprender</p>
-    </div>
-  </footer>
-
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
   </script>
+  
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
