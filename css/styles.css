@@ -1,7 +1,7 @@
 /* =============== VARIABLES =============== */
 :root {
   /* Colores principales */
-  --primary: #5b6ee1;        /* azul suave moderno */
+  --primary: #7C5CFF;        /* lilac / mejor contraste */
   --secondary: #f2a7c0;      /* rosa pastel */
   --accent: #89c2ff;         /* celeste */
   --highlight: #fde2ec;      /* rosa muy clarito */
@@ -280,29 +280,39 @@ main {
 }
 
 .btn-primary {
-  background-color: var(--accent);
+  background-color: var(--primary); /* stronger, higher contrast */
   color: var(--white);
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(91,110,225,0.18);
 }
 
-.btn-primary:hover {
-  background-color: var(--white);
-  color: var(--accent);
-  border-color: var(--accent);
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: #3f4fd0; /* darker primary */
+  color: var(--white);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 30px rgba(63,79,208,0.25);
 }
 
 .btn-secondary {
-  background-color: var(--white);
-  color: var(--accent);
-  border: 2px solid var(--accent);
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
-.btn-secondary:hover {
-  background-color: var(--accent);
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background-color: var(--primary);
   color: var(--white);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(91,110,225,0.12);
+}
+
+/* Make interactive elements more visible when focused */
+button:focus-visible,
+a.btn:focus-visible {
+  outline: 3px solid rgba(137,194,255,0.24);
+  outline-offset: 3px;
 }
 
 /* Sections */
@@ -482,6 +492,58 @@ main {
   }
 }
 
+/* Paragraphs: contrast and readability */
+p,
+.hero-text p,
+.about-card p,
+.skill-card p,
+.value-card p,
+.footer-content p {
+  color: #3b3f55; /* stronger contrast than previous grey */
+  line-height: 1.9;
+  font-size: var(--fs-base);
+  letter-spacing: 0.15px;
+  margin-bottom: var(--space-md);
+}
+
+/* Dark mode paragraphs */
+body.dark-mode p,
+body.dark-mode .hero-text p,
+body.dark-mode .about-card p,
+body.dark-mode .skill-card p,
+body.dark-mode .value-card p,
+body.dark-mode .footer-content p {
+  color: #dfe8fb; /* light, readable on dark background */
+}
+
+/* Links inside paragraphs should remain high contrast */
+p a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+body.dark-mode p a {
+  color: #bfe1ff;
+}
+
+/* Responsive paragraph sizes */
+@media (max-width: 768px) {
+  p,
+  .hero-text p {
+    font-size: 0.98rem;
+    line-height: 1.95;
+  }
+}
+
+@media (max-width: 420px) {
+  p,
+  .hero-text p {
+    font-size: 0.95rem;
+    line-height: 2;
+  }
+  .hero-text p { margin-bottom: 0.75rem; }
+}
+
 /* responsive */
 
 @media (max-width: 768px) {
@@ -544,12 +606,19 @@ main {
 }
 
 
-/* Responsive footer */
-@media (max-width: 576px) {
-  .footer-nav {
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
+@media (max-width: 768px) {
+  html { font-size: 15px; }
+  .hero-text h1 { font-size: 1.8rem; }
+  .hero-text h2 { font-size: 1.1rem; }
+  .skill-card h3 { font-size: 1.05rem; }
+  .hero-buttons { justify-content: stretch; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 420px) {
+  html { font-size: 14px; }
+  .hero-text h1 { font-size: 1.6rem; }
+  .hero-text p { font-size: 0.95rem; }
 }
 
 /* =============== ABOUT PAGE =============== */
@@ -704,4 +773,351 @@ main {
   .values-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Skills list */
+#skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+  align-items: start;
+  margin-top: var(--space-md);
+}
+
+.skill-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: calc(var(--space-md) * 0.9);
+  box-shadow: var(--shadow-sm);
+  border: var(--border);
+  text-align: center;
+}
+
+.skill-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 0 auto var(--space-sm);
+  display: block;
+}
+
+.skill-card h3 {
+  margin: 0.25rem 0;
+  color: var(--dark);
+  font-size: var(--fs-lg);
+}
+
+.skill-card p {
+  color: var(--grey-dark);
+  font-size: var(--fs-sm);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: var(--space-sm);
+}
+
+.skill-tags span {
+  background-color: var(--highlight);
+  color: var(--primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+}
+
+@media (max-width: 768px) {
+  .skill-icon { width: 48px; height: 48px; }
+}
+
+/* Dark mode */
+
+body.dark-mode {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+body.dark-mode header {
+  background-color: #1f2230;
+  box-shadow: none;
+}
+
+body.dark-mode .nav-list a {
+  color: var(--grey);
+}
+
+body.dark-mode .logo {
+  color: var(--accent);
+}
+
+body.dark-mode .btn-primary {
+  background-color: #89c2ff; /* accent as contrast color */
+  color: #071028;
+  box-shadow: 0 8px 20px rgba(137,194,255,0.08);
+}
+
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-primary:focus-visible {
+  background-color: #6fb3ff;
+  color: #071028;
+}
+
+body.dark-mode .btn-secondary {
+  background-color: transparent;
+  color: #89c2ff;
+  border-color: rgba(137,194,255,0.18);
+}
+
+body.dark-mode .btn-secondary:hover,
+body.dark-mode .btn-secondary:focus-visible {
+  background-color: rgba(137,194,255,0.08);
+  color: #e6eefc;
+}
+
+body.dark-mode .skill-card,
+body.dark-mode .about-card,
+body.dark-mode .value-card {
+  background-color: #16171b;
+  color: #e6e9ef;
+  border-color: rgba(255,255,255,0.04);
+  box-shadow: none;
+}
+
+body.dark-mode .skill-card p,
+body.dark-mode .about-card p,
+body.dark-mode .value-card p {
+  color: #cfd6e6;
+}
+
+/* Headings contrast */
+h1, h2, h3 {
+  color: var(--dark);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #eaf0ff;
+}
+
+/* Footer contrast */
+.footer-content {
+  color: var(--grey-dark);
+}
+body.dark-mode .footer-content {
+  color: #cfd6e6;
+}
+
+/* Responsive typography tweaks for readability */
+@media (max-width: 768px) {
+  html { font-size: 15px; }
+  .hero-text h1 { font-size: 1.8rem; }
+  .hero-text h2 { font-size: 1.1rem; }
+  .skill-card h3 { font-size: 1.05rem; }
+  .hero-buttons { justify-content: stretch; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 420px) {
+  html { font-size: 14px; }
+  .hero-text h1 { font-size: 1.6rem; }
+  .hero-text p { font-size: 0.95rem; }
+}
+
+/* Dark mode toggle icon contrast */
+#dark-mode-toggle {
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey-dark);
+}
+
+#dark-mode-toggle i,
+#dark-mode-toggle svg {
+  color: inherit;
+  width: 20px;
+  height: 20px;
+}
+
+#dark-mode-toggle:hover {
+  color: var(--primary);
+}
+
+body.dark-mode #dark-mode-toggle {
+  color: #ffdca8; /* warm sun color for visibility */
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+  color: #ffe9c9;
+}
+
+/* Ensure lucide icons inherit color when inserted as svg */
+#dark-mode-toggle svg [stroke],
+#dark-mode-toggle svg [fill] {
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
+
+/* Contact form - improved contrast in dark mode */
+.contact-container {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 720px;
+  background: var(--white);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: var(--border);
+}
+
+.contact-form .form-group {
+  margin-bottom: var(--space-md);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--grey-dark);
+  font-weight: var(--font-medium);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(45,49,66,0.06);
+  background: #fff;
+  color: var(--dark);
+}
+
+.contact-form textarea { min-height: 140px; }
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--grey);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(137,194,255,0.12);
+}
+
+/* Dark mode: contact form */
+body.dark-mode .contact-form {
+  background-color: #16161a;
+  border-color: rgba(255,255,255,0.04);
+  box-shadow: none;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background-color: #121217;
+  color: #e6e9ef;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+body.dark-mode .contact-form input::placeholder,
+body.dark-mode .contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.28);
+}
+
+body.dark-mode .contact-form input:focus,
+body.dark-mode .contact-form textarea:focus {
+  border-color: rgba(137,194,255,0.28);
+  box-shadow: 0 8px 24px rgba(137,194,255,0.06);
+}
+
+/* Polaroid card tweaks: use --primary as a lilac/blue tone in dark-mode */
+body.dark-mode .polaroid-card {
+  background-color: var(--primary); /* uses existing color for better harmony */
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(91,110,225,0.12);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+body.dark-mode .polaroid-card figcaption {
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+}
+
+/* Contact form improvements */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-lg) 0;
+}
+
+/* Use subtle card in light mode to avoid pure-white border feel */
+.contact-form {
+  width: 100%;
+  max-width: 720px;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(45,49,66,0.06);
+  border: 1px solid rgba(45,49,66,0.06);
+}
+
+.contact-form label { color: var(--dark); }
+.contact-form input,
+.contact-form textarea { color: var(--dark); }
+.contact-form .btn-submit {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+}
+
+.contact-form .btn-submit:hover { background-color: #3f4fd0; }
+
+/* Make form full-width and spacing on small screens */
+@media (max-width: 768px) {
+  .contact-container { padding: var(--space-md); }
+  .contact-form { padding: var(--space-md); }
+  .contact-form input, .contact-form textarea { font-size: 0.98rem; }
+}
+
+@media (max-width: 420px) {
+  .contact-form { padding: var(--space-sm); border-radius: 10px; }
+  .contact-form input, .contact-form textarea { font-size: 0.95rem; }
+  .contact-form .btn-submit { width: 100%; }
+  .contact-container { padding: var(--space-sm); }
+}
+
+/* Dark mode: soften contact form border and text contrast */
+body.dark-mode .contact-form {
+  background: linear-gradient(180deg, #0f1115 0%, #0b0c10 100%);
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: none;
+}
+
+body.dark-mode .contact-form label { color: #dfe8fb; }
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background-color: #0b0c10;
+  color: #e6eefc;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+body.dark-mode .contact-form .btn-submit {
+  background-color: var(--accent);
+  color: #071028;
+}
+
+/* Ensure polaroid and contact have good spacing on small screens */
+@media (max-width: 768px) {
+  .polaroid-card { margin-bottom: var(--space-md); }
 }
