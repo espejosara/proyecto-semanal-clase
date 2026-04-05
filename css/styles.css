@@ -295,9 +295,9 @@ main {
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: rgba(124, 92, 255, 0.08); /* Fondo lila muy suave */
   color: var(--primary);
-  border: 2px solid var(--primary);
+  border: 2px solid rgba(124, 92, 255, 0.4); /* Borde semi-transparente */
 }
 
 .btn-secondary:hover,
@@ -413,7 +413,7 @@ a.btn:focus-visible {
 
 .btn-submit {
   padding: var(--space-sm) var(--space-xl);
-  background-color: var(--accent);
+  background-color: var(--primary);
   color: var(--white);
   font-weight: var(--font-medium);
   font-size: var(--fs-base);
@@ -422,12 +422,13 @@ a.btn:focus-visible {
   cursor: pointer;
   transition: all var(--transition-fast);
   align-self: flex-start;
+  box-shadow: 0 6px 18px rgba(91,110,225,0.18);
 }
 
 .btn-submit:hover {
-  background-color: var(--primary);
+  background-color: #3f4fd0;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 30px rgba(63,79,208,0.25);
 }
 
 /* Footer */
@@ -835,289 +836,142 @@ body.dark-mode p a {
 /* Dark mode */
 
 body.dark-mode {
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: #131521; /* Azul noche profundo */
+  color: #e2e8f0; /* Texto principal claro y suave */
 }
 
 body.dark-mode header {
-  background-color: #1f2230;
-  box-shadow: none;
+  background-color: #1e2136; /* Un tono más claro para elevar el header */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 body.dark-mode .nav-list a {
-  color: var(--grey);
+  color: #94a3b8;
+}
+
+body.dark-mode .nav-list a:hover {
+  color: var(--secondary);
+}
+
+/* Arreglo para el menú móvil en modo oscuro */
+body.dark-mode .nav-list.active {
+  background-color: #1e2136;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 body.dark-mode .logo {
-  color: var(--accent);
-}
-
-body.dark-mode .btn-primary {
-  background-color: #89c2ff; /* accent as contrast color */
-  color: #071028;
-  box-shadow: 0 8px 20px rgba(137,194,255,0.08);
-}
-
-body.dark-mode .btn-primary:hover,
-body.dark-mode .btn-primary:focus-visible {
-  background-color: #6fb3ff;
-  color: #071028;
+  color: var(--primary); /* Mantenemos el color de marca, resalta bien en fondo oscuro */
 }
 
 body.dark-mode .btn-secondary {
-  background-color: transparent;
-  color: #89c2ff;
-  border-color: rgba(137,194,255,0.18);
+  background-color: rgba(165, 180, 252, 0.08);
+  color: #a5b4fc;
+  border-color: rgba(165, 180, 252, 0.3);
 }
 
 body.dark-mode .btn-secondary:hover,
 body.dark-mode .btn-secondary:focus-visible {
-  background-color: rgba(137,194,255,0.08);
-  color: #e6eefc;
+  background-color: rgba(165, 180, 252, 0.15);
+  color: #fff;
+  border-color: #a5b4fc;
 }
 
+/* Tarjetas (Skills, About, Values) */
 body.dark-mode .skill-card,
 body.dark-mode .about-card,
 body.dark-mode .value-card {
-  background-color: #16171b;
-  color: #e6e9ef;
-  border-color: rgba(255,255,255,0.04);
-  box-shadow: none;
+  background-color: #1e2136;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .skill-card h3,
+body.dark-mode .about-card h3,
+body.dark-mode .value-card h3 {
+  color: #f8fafc;
 }
 
 body.dark-mode .skill-card p,
 body.dark-mode .about-card p,
 body.dark-mode .value-card p {
-  color: #cfd6e6;
+  color: #94a3b8;
+}
+
+/* Etiquetas (Tags) de las skills en modo oscuro */
+body.dark-mode .skill-tags span {
+  background-color: rgba(124, 92, 255, 0.15);
+  color: #b59eff;
 }
 
 /* Headings contrast */
-h1, h2, h3 {
-  color: var(--dark);
+body.dark-mode h1,
+body.dark-mode h2 {
+  color: #f8fafc;
 }
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3 {
-  color: #eaf0ff;
+body.dark-mode .hero-text h1 {
+  color: var(--primary); /* Mantener el branding */
 }
 
 /* Footer contrast */
-.footer-content {
-  color: var(--grey-dark);
-}
 body.dark-mode .footer-content {
-  color: #cfd6e6;
-}
-
-/* Responsive typography tweaks for readability */
-@media (max-width: 768px) {
-  html { font-size: 15px; }
-  .hero-text h1 { font-size: 1.8rem; }
-  .hero-text h2 { font-size: 1.1rem; }
-  .skill-card h3 { font-size: 1.05rem; }
-  .hero-buttons { justify-content: stretch; }
-  .hero-buttons .btn { width: 100%; justify-content: center; }
-}
-
-@media (max-width: 420px) {
-  html { font-size: 14px; }
-  .hero-text h1 { font-size: 1.6rem; }
-  .hero-text p { font-size: 0.95rem; }
+  color: #94a3b8;
 }
 
 /* Dark mode toggle icon contrast */
-#dark-mode-toggle {
-  background: transparent;
-  border: none;
-  padding: 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--grey-dark);
-}
-
-#dark-mode-toggle i,
-#dark-mode-toggle svg {
-  color: inherit;
-  width: 20px;
-  height: 20px;
-}
-
-#dark-mode-toggle:hover {
-  color: var(--primary);
-}
-
 body.dark-mode #dark-mode-toggle {
-  color: #ffdca8; /* warm sun color for visibility */
+  color: #fbbf24; /* Color sol cálido */
 }
 
 body.dark-mode #dark-mode-toggle:hover {
-  color: #ffe9c9;
+  color: #fcd34d;
+  transform: rotate(15deg);
 }
 
-/* Ensure lucide icons inherit color when inserted as svg */
-#dark-mode-toggle svg [stroke],
-#dark-mode-toggle svg [fill] {
-  stroke: currentColor !important;
-  fill: currentColor !important;
-}
-
-/* Contact form - improved contrast in dark mode */
-.contact-container {
-  display: flex;
-  justify-content: center;
-}
-
-.contact-form {
-  width: 100%;
-  max-width: 720px;
-  background: var(--white);
-  padding: var(--space-lg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border: var(--border);
-}
-
-.contact-form .form-group {
-  margin-bottom: var(--space-md);
-}
-
-.contact-form label {
-  display: block;
-  margin-bottom: 0.4rem;
-  color: var(--grey-dark);
-  font-weight: var(--font-medium);
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.65rem 0.75rem;
-  border-radius: 10px;
-  border: 1px solid rgba(45,49,66,0.06);
-  background: #fff;
-  color: var(--dark);
-}
-
-.contact-form textarea { min-height: 140px; }
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--grey);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 6px 18px rgba(137,194,255,0.12);
+/* Hamburger en modo oscuro */
+body.dark-mode .hamburger span {
+  background-color: #e2e8f0;
 }
 
 /* Dark mode: contact form */
-body.dark-mode .contact-form {
-  background-color: #16161a;
-  border-color: rgba(255,255,255,0.04);
-  box-shadow: none;
+body.dark-mode .contact-container {
+  background: #1e2136;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea {
-  background-color: #121217;
-  color: #e6e9ef;
-  border: 1px solid rgba(255,255,255,0.04);
+body.dark-mode .form-group label {
+  color: #cbd5e1;
 }
 
-body.dark-mode .contact-form input::placeholder,
-body.dark-mode .contact-form textarea::placeholder {
-  color: rgba(255,255,255,0.28);
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+  background-color: #131521;
+  color: #f8fafc;
+  border: 2px solid transparent;
 }
 
-body.dark-mode .contact-form input:focus,
-body.dark-mode .contact-form textarea:focus {
-  border-color: rgba(137,194,255,0.28);
-  box-shadow: 0 8px 24px rgba(137,194,255,0.06);
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .form-group textarea::placeholder {
+  color: #64748b;
 }
 
-/* Polaroid card tweaks: use --primary as a lilac/blue tone in dark-mode */
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+  background-color: #1e2136;
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(124, 92, 255, 0.15);
+}
+
+/* Tarjeta Polaroid en modo oscuro */
 body.dark-mode .polaroid-card {
-  background-color: var(--primary); /* uses existing color for better harmony */
-  color: #fff;
-  box-shadow: 0 8px 30px rgba(91,110,225,0.12);
-  border: 1px solid rgba(255,255,255,0.04);
+  background-color: #1e2136;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode .polaroid-card figcaption {
-  color: rgba(255,255,255,0.95);
-  font-weight: 500;
-}
-
-/* Contact form improvements */
-.contact-container {
-  display: flex;
-  justify-content: center;
-  padding: var(--space-lg) 0;
-}
-
-/* Use subtle card in light mode to avoid pure-white border feel */
-.contact-form {
-  width: 100%;
-  max-width: 720px;
-  background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
-  padding: var(--space-lg);
-  border-radius: var(--radius-md);
-  box-shadow: 0 12px 40px rgba(45,49,66,0.06);
-  border: 1px solid rgba(45,49,66,0.06);
-}
-
-.contact-form label { color: var(--dark); }
-.contact-form input,
-.contact-form textarea { color: var(--dark); }
-.contact-form .btn-submit {
-  background-color: var(--primary);
-  color: var(--white);
-  border: none;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-}
-
-.contact-form .btn-submit:hover { background-color: #3f4fd0; }
-
-/* Make form full-width and spacing on small screens */
-@media (max-width: 768px) {
-  .contact-container { padding: var(--space-md); }
-  .contact-form { padding: var(--space-md); }
-  .contact-form input, .contact-form textarea { font-size: 0.98rem; }
-}
-
-@media (max-width: 420px) {
-  .contact-form { padding: var(--space-sm); border-radius: 10px; }
-  .contact-form input, .contact-form textarea { font-size: 0.95rem; }
-  .contact-form .btn-submit { width: 100%; }
-  .contact-container { padding: var(--space-sm); }
-}
-
-/* Dark mode: soften contact form border and text contrast */
-body.dark-mode .contact-form {
-  background: linear-gradient(180deg, #0f1115 0%, #0b0c10 100%);
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: none;
-}
-
-body.dark-mode .contact-form label { color: #dfe8fb; }
-body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea {
-  background-color: #0b0c10;
-  color: #e6eefc;
-  border: 1px solid rgba(255,255,255,0.04);
-}
-
-body.dark-mode .contact-form .btn-submit {
-  background-color: var(--accent);
-  color: #071028;
-}
-
-/* Ensure polaroid and contact have good spacing on small screens */
-@media (max-width: 768px) {
-  .polaroid-card { margin-bottom: var(--space-md); }
+  color: #94a3b8;
 }
