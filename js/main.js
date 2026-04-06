@@ -8,6 +8,15 @@ const footerContainer = document.getElementById('footer');
 
 if (headerContainer) {
   headerContainer.innerHTML = header;
+  
+  // Resaltar el enlace de la página activa
+  const activePath = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-list a');
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === `./${activePath}`) {
+      link.classList.add('active');
+    }
+  });
 }
 
 if (footerContainer) {
@@ -21,4 +30,19 @@ menu();
 
 if (window.lucide) {
   lucide.createIcons();
+}
+
+// Simulación de envío del formulario de contacto
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Evita que la página se recargue
+    const btn = contactForm.querySelector('.btn-submit');
+    const originalText = btn.textContent;
+    
+    btn.textContent = '¡Mensaje Enviado!';
+    contactForm.reset(); // Vacía los inputs del formulario
+    
+    setTimeout(() => { btn.textContent = originalText; }, 3000); // Vuelve a la normalidad a los 3s
+  });
 }

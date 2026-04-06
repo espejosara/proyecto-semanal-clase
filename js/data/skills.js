@@ -9,7 +9,7 @@ const skills = [
   },
   {
     name: "CSS3",
-    icon: "https://cdn.simpleicons.org/css3/1572B6",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
     state: "dominada",
     level: "avanzado",
     description: "Diseño responsive, animaciones y layouts modernos.",

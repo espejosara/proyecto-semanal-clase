@@ -2,15 +2,13 @@ const darkMode = () => {
   const button = document.getElementById('dark-mode-toggle');
   if (!button) return;
 
-  const icon = button.querySelector('i[data-lucide]');
-
   const savePref = (isDark) => {
     try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) { /* ignore */ }
   };
 
   const setIcon = (isDark) => {
-    if (!icon) return;
-    icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+    // Reinyectamos la etiqueta en el botón para evitar perderla cuando Lucide la convierte en SVG
+    button.innerHTML = `<i data-lucide="${isDark ? 'sun' : 'moon'}"></i>`;
     if (window.lucide) lucide.createIcons();
   };
 

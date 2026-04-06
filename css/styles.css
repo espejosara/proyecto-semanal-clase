@@ -145,10 +145,12 @@ nav {
   transition: width var(--transition-medium);
 }
 
+.nav-list a.active,
 .nav-list a:hover {
   color: var(--secondary);
 }
 
+.nav-list a.active::after,
 .nav-list a:hover::after {
   width: 100%;
 }
