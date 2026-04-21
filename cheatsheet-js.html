@@ -23,27 +23,309 @@
         <h3>Contenido</h3>
         <ul>
           <li><a href="#variables">Variables</a></li>
+          <li><a href="#tipos">Tipos de Datos</a></li>
+          <li><a href="#templates">Template Strings</a></li>
+          <li><a href="#operadores">Operadores</a></li>
+          <li><a href="#control">Control de Flujo</a></li>
           <li><a href="#funciones">Funciones</a></li>
+          <li><a href="#arrays">Arrays</a></li>
+          <li><a href="#strings">Strings</a></li>
+          <li><a href="#dom">DOM</a></li>
+          <li><a href="#fetch">Async/Await</a></li>
+          <li><a href="#storage">Storage</a></li>
+          <li><a href="#objetos">Objetos y JSON</a></li>
         </ul>
       </nav>
     </aside>
 
     <!-- CONTENIDO DE LA CHEATSHEET -->
     <div class="cheatsheet-content">
-      <h1>Cheatsheet JavaScript</h1>
-      <p>Conceptos fundamentales, ES6+ y manipulación del DOM.</p>
+      <div class="hero-text">
+        <h1>Cheatsheet JavaScript</h1>
+        <p>Guía rápida de JavaScript moderno: variables, tipos, template strings, operadores, control de flujo, funciones, arrays/strings/números, módulos, DOM, asincronía (promesas/fetch), fechas, storage y objetos/JSON.</p>
+      </div>
 
       <section id="variables" class="section">
         <h2>Variables</h2>
-        <p>Uso de let y const en lugar de var:</p>
-        <pre><code>
-// const: para valores que NO cambian
-const nombre = "Sara";
+        <article class="about-card">
+          <p>Usa <code>const</code> por defecto. <code>let</code> si cambia. Evita <code>var</code>.</p>
+          <pre><code>
+// var (EVITAR)
+var nombre = "Juan";
+var nombre = "Pedro";   // redeclarar ✅
+nombre = "Carlos";      // reasignar ✅
 
-// let: para valores que SÍ cambian
+// let (cambia)
 let edad = 30;
-edad = 31;
-        </code></pre>
+edad = 35;              // reasignar ✅
+// let edad = 40;       // ❌ redeclarar en el mismo bloque
+
+// const (fijo / referencia estable)
+const PI = 3.1416;
+// PI = 3.15;           // ❌ no reasignar
+          </code></pre>
+          <ul>
+            <li><strong>const</strong> no “congela” objetos/arrays, solo evita reasignar la variable.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="tipos" class="section">
+        <h2>Tipos de datos</h2>
+        <article class="about-card">
+          <p>Primitivos (valor) vs complejos (referencia) + typeof.</p>
+          <pre><code>
+// Primitivos
+const texto = "JavaScript";   // string
+const entero = 42;            // number
+const esActivo = true;        // boolean
+let indefinido;               // undefined
+const vacio = null;           // null
+
+// Complejos
+const persona = { nombre: "Ana", edad: 25 };
+const frutas = ["🍎", "🍌"];
+function saludar(n) { return `Hola ${n}`; }
+
+// typeof
+console.log(typeof "Hola");      // "string"
+console.log(typeof 42);          // "number"
+console.log(typeof null);        // "object" (histórico)
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="templates" class="section">
+        <h2>Template Strings</h2>
+        <article class="about-card">
+          <p>Interpolación + multilínea + expresiones.</p>
+          <pre><code>
+const nombre = "Juan";
+const edad = 30;
+
+console.log(`Hola, soy ${nombre} y tengo ${edad} años.`);
+
+const precio = 100;
+const iva = 0.21;
+console.log(`Total: ${precio * (1 + iva)}€`);
+
+const multi = `
+Línea 1
+Línea 2
+`;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="operadores" class="section">
+        <h2>Operadores</h2>
+        <article class="about-card">
+          <p>Aritmética, asignación, comparación, lógica y modernos.</p>
+          <pre><code>
+// Comparación
+5 == "5";    // true (EVITAR)
+5 === "5";   // false (RECOMENDADO)
+5 !== "5";   // true
+
+// Lógicos
+true && false;
+true || false;
+!true;
+
+// Ternario
+const edad = 18;
+const acceso = edad >= 18 ? "Permitido" : "Denegado";
+
+// Modernos
+const nombre = null;
+console.log(nombre ?? "Anónimo"); // nullish coalescing
+
+const usuario = { direccion: { ciudad: "Madrid" } };
+console.log(usuario.direccion?.ciudad); // Optional chaining
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="control" class="section">
+        <h2>Estructuras de control</h2>
+        <article class="about-card">
+          <p>Bucles + condicionales + break/continue/return.</p>
+          <pre><code>
+// for
+for (let i = 0; i < 3; i++) console.log(i);
+
+// for...of (arrays)
+for (const fruta of ["🍎","🍌"]) console.log(fruta);
+
+// for...in (objetos)
+const persona = { nombre: "Ana", edad: 25 };
+for (const k in persona) console.log(k, persona[k]);
+
+// if / else
+const edad = 20;
+if (edad >= 18) {
+  console.log("OK");
+} else {
+  console.log("NO");
+}
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="funciones" class="section">
+        <h2>Funciones</h2>
+        <article class="about-card">
+          <p>Declaradas, expresadas, arrow, y con parámetros por defecto.</p>
+          <pre><code>
+// Declarada
+function saludar(nombre) {
+  return `Hola, ${nombre}`;
+}
+
+// Expresada
+const despedir = function (nombre) {
+  return `Adiós, ${nombre}`;
+};
+
+// Arrow
+const sumar = (a, b) => a + b;
+
+// Con parámetros por defecto
+function saludarPersona(nombre = "Anónimo") {
+  console.log(`Hola, ${nombre}`);
+}
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="arrays" class="section">
+        <h2>Métodos de Array</h2>
+        <article class="about-card">
+          <p>Mutables vs inmutables (recomendado) + iteración.</p>
+          <pre><code>
+// NO mutan (preferidos)
+const a = [1,2,3,4,5];
+
+const cuadrados = a.map(n => n ** 2);
+const pares = a.filter(n => n % 2 === 0);
+const suma = a.reduce((acc, n) => acc + n, 0);
+const encontrado = a.find(n => n > 3);
+const hayPares = a.some(n => n % 2 === 0);
+const todosPos = a.every(n => n > 0);
+
+a.forEach(n => console.log(n));
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="strings" class="section">
+        <h2>Métodos de String</h2>
+        <article class="about-card">
+          <p>Transformar, buscar y cortar.</p>
+          <pre><code>
+const texto = "JavaScript es genial";
+
+texto.toUpperCase();
+texto.toLowerCase();
+"  Hola  ".trim();
+texto.replace("genial", "increíble");
+texto.slice(0, 10);
+texto.split(" ");
+texto.includes("JavaScript");
+texto.startsWith("Aprender");
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="dom" class="section">
+        <h2>DOM</h2>
+        <article class="about-card">
+          <p>Seleccionar, cambiar contenido, clases, crear nodos y eventos.</p>
+          <pre><code>
+// Selección
+const titulo = document.getElementById("titulo");
+const uno = document.querySelector(".clase");
+const todos = document.querySelectorAll(".clase");
+
+// Contenido
+titulo.textContent = "Nuevo título";
+titulo.innerHTML = "&lt;b&gt;Negrita&lt;/b&gt;";
+
+// Clases
+titulo.classList.add("destacado");
+titulo.classList.toggle("activo");
+
+// Crear / insertar
+const p = document.createElement("p");
+p.textContent = "Nuevo párrafo";
+document.body.appendChild(p);
+
+// Eventos
+const boton = document.getElementById("boton");
+boton.addEventListener("click", () => console.log("click"));
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="fetch" class="section">
+        <h2>Fetch / Async-Await</h2>
+        <article class="about-card">
+          <p>GET/POST + manejo de errores con response.ok.</p>
+          <pre><code>
+async function obtenerPokemon(id) {
+  try {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    return data;
+  } catch (e) {
+    console.error("Error:", e);
+  }
+}
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="storage" class="section">
+        <h2>Storage (browser)</h2>
+        <article class="about-card">
+          <p>localStorage, sessionStorage y cookies.</p>
+          <pre><code>
+// localStorage (persistente)
+localStorage.setItem("nombre", "Juan");
+const nombre = localStorage.getItem("nombre");
+localStorage.removeItem("nombre");
+localStorage.clear();
+
+// sessionStorage (pestaña)
+sessionStorage.setItem("usuario", "Ana");
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="objetos" class="section">
+        <h2>Objetos y JSON</h2>
+        <article class="about-card">
+          <p>CRUD de propiedades + métodos de Object + stringify/parse.</p>
+          <pre><code>
+const persona = {
+  nombre: "Juan",
+  edad: 30,
+};
+
+persona.edad = 31;
+persona.ciudad = "Madrid";
+delete persona.ciudad;
+
+Object.keys(persona);
+Object.values(persona);
+Object.entries(persona);
+
+// JSON
+const json = JSON.stringify(persona);
+const obj = JSON.parse(json);
+          </code></pre>
+        </article>
       </section>
     </div>
   </main>

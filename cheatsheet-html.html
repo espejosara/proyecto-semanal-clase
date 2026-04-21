@@ -23,31 +23,220 @@
         <h3>Contenido</h3>
         <ul>
           <li><a href="#estructura">Estructura Básica</a></li>
-          <li><a href="#etiquetas">Etiquetas de Texto</a></li>
+          <li><a href="#meta">Metaetiquetas</a></li>
+          <li><a href="#texto">Texto y Encabezados</a></li>
+          <li><a href="#enlaces">Enlaces</a></li>
+          <li><a href="#listas">Listas</a></li>
+          <li><a href="#media">Multimedia</a></li>
+          <li><a href="#forms">Formularios</a></li>
+          <li><a href="#semantica">Semántica</a></li>
+          <li><a href="#globales">Atributos</a></li>
+          <li><a href="#a11y">Accesibilidad</a></li>
+          <li><a href="#buenas">Mejores Prácticas</a></li>
         </ul>
       </nav>
     </aside>
 
     <!-- CONTENIDO DE LA CHEATSHEET -->
     <div class="cheatsheet-content">
-      <h1>Cheatsheet HTML5</h1>
-      <p>Guía rápida de referencia con la sintaxis y etiquetas esenciales de HTML.</p>
+      <div class="hero-text">
+        <h1>Cheatsheet HTML5</h1>
+        <p>Guía rápida para escribir HTML moderno y semántico: estructura, meta, texto, enlaces, listas, multimedia, tablas, formularios, accesibilidad y buenas prácticas.</p>
+      </div>
 
       <section id="estructura" class="section">
         <h2>Estructura Básica</h2>
-        <p>Todo documento HTML5 debe incluir esta estructura mínima:</p>
-        <pre><code>
+        <article class="about-card">
+          <p>Plantilla mínima recomendada.</p>
+          <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="es"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
   &lt;title&gt;Título de tu página&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+  &lt;main&gt;Contenido&lt;/main&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-        </code></pre>
+          </code></pre>
+          <ul>
+            <li><strong>DOCTYPE</strong> primero.</li>
+            <li><strong>meta charset</strong> lo más arriba posible.</li>
+            <li><strong>viewport</strong> para responsive.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="meta" class="section">
+        <h2>Metaetiquetas</h2>
+        <article class="about-card">
+          <p>Básicos + SEO + redes.</p>
+          <pre><code>
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="description" content="Descripción clara"&gt;
+
+&lt;meta name="robots" content="index, follow"&gt;
+&lt;link rel="canonical" href="https://ejemplo.com/pagina"&gt;
+
+&lt;meta property="og:title" content="Título"&gt;
+&lt;meta property="og:description" content="Descripción"&gt;
+&lt;meta property="og:image" content="https://ejemplo.com/img.jpg"&gt;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="texto" class="section">
+        <h2>Encabezados y texto</h2>
+        <article class="about-card">
+          <p>Usa <code>h1</code> una vez por página y respeta la jerarquía.</p>
+          <pre><code>
+&lt;h1&gt;Título principal&lt;/h1&gt;
+&lt;h2&gt;Sección&lt;/h2&gt;
+&lt;p&gt;Párrafo normal.&lt;/p&gt;
+
+&lt;strong&gt;Importante&lt;/strong&gt;
+&lt;em&gt;Énfasis&lt;/em&gt;
+&lt;mark&gt;Highlight&lt;/mark&gt;
+
+&lt;code&gt;console.log("inline")&lt;/code&gt;
+&lt;pre&gt;Bloque preformateado&lt;/pre&gt;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="enlaces" class="section">
+        <h2>Enlaces y navegación</h2>
+        <article class="about-card">
+          <pre><code>
+&lt;a href="https://ejemplo.com"&gt;Externo&lt;/a&gt;
+&lt;a href="/ruta"&gt;Interno&lt;/a&gt;
+&lt;a href="#seccion"&gt;Ancla&lt;/a&gt;
+
+&lt;a href="https://ejemplo.com" target="_blank" rel="noopener noreferrer"&gt;
+  Nueva pestaña (seguro)
+&lt;/a&gt;
+
+&lt;nav aria-label="Principal"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#inicio"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="listas" class="section">
+        <h2>Listas</h2>
+        <article class="about-card">
+          <pre><code>
+&lt;ul&gt;
+  &lt;li&gt;Elemento&lt;/li&gt;
+  &lt;li&gt;
+    Con sublista
+    &lt;ul&gt;&lt;li&gt;Sub&lt;/li&gt;&lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Paso 1&lt;/li&gt;
+  &lt;li&gt;Paso 2&lt;/li&gt;
+&lt;/ol&gt;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="media" class="section">
+        <h2>Imágenes y multimedia</h2>
+        <article class="about-card">
+          <pre><code>
+&lt;img src="img.jpg" alt="Descripción"&gt;
+
+&lt;picture&gt;
+  &lt;source srcset="img.webp" type="image/webp"&gt;
+  &lt;img src="img.jpg" alt="Fallback" loading="lazy"&gt;
+&lt;/picture&gt;
+
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;video controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="forms" class="section">
+        <h2>Formularios</h2>
+        <article class="about-card">
+          <p>Siempre <strong>label + for</strong> conectado a un <strong>id</strong>.</p>
+          <pre><code>
+&lt;form action="/procesar" method="POST"&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" name="email" type="email" required&gt;
+
+  &lt;label for="msg"&gt;Mensaje&lt;/label&gt;
+  &lt;textarea id="msg" name="msg" rows="4"&gt;&lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="semantica" class="section">
+        <h2>HTML semántico</h2>
+        <article class="about-card">
+          <pre><code>
+&lt;header&gt;...&lt;/header&gt;
+&lt;nav aria-label="Principal"&gt;...&lt;/nav&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h2&gt;Título&lt;/h2&gt;
+      &lt;time datetime="2024-03-15"&gt;15/03/2024&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;section&gt;...&lt;/section&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="globales" class="section">
+        <h2>Atributos globales</h2>
+        <article class="about-card">
+          <pre><code>
+&lt;div id="unico"&gt;...&lt;/div&gt;
+&lt;div class="card highlight"&gt;...&lt;/div&gt;
+&lt;div data-producto-id="123" data-precio="29.99"&gt;...&lt;/div&gt;
+&lt;button aria-label="Cerrar" tabindex="0"&gt;X&lt;/button&gt;
+&lt;div contenteditable="true"&gt;Editable&lt;/div&gt;
+&lt;div hidden&gt;Oculto&lt;/div&gt;
+          </code></pre>
+        </article>
+      </section>
+
+      <section id="a11y" class="section">
+        <h2>Accesibilidad (A11y)</h2>
+        <article class="about-card">
+          <p>Prioriza semántica real antes que ARIA.</p>
+          <pre><code>
+&lt;a href="#main"&gt;Saltar al contenido&lt;/a&gt;
+&lt;img src="decoracion.jpg" alt=""&gt;
+
+&lt;button aria-expanded="false" aria-controls="menu"&gt;
+  Menú
+&lt;/button&gt;
+
+&lt;div aria-live="polite"&gt;Mensajes de estado&lt;/div&gt;
+          </code></pre>
+        </article>
       </section>
     </div>
   </main>
