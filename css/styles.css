@@ -1,11 +1,16 @@
 /* =============== VARIABLES =============== */
 :root {
   /* Colores principales */
-  --primary: #7C5CFF;        /* lilac / mejor contraste */
-  --secondary: #f2a7c0;      /* rosa pastel */
-  --accent: #89c2ff;         /* celeste */
-  --highlight: #fde2ec;      /* rosa muy clarito */
-  --success: #a8dadc;        /* azul verdoso suave */
+  --primary: #7C5CFF;
+  /* lilac / mejor contraste */
+  --secondary: #f2a7c0;
+  /* rosa pastel */
+  --accent: #89c2ff;
+  /* celeste */
+  --highlight: #fde2ec;
+  /* rosa muy clarito */
+  --success: #a8dadc;
+  /* azul verdoso suave */
 
   /* Neutros */
   --dark: #2b2d42;
@@ -24,15 +29,24 @@
   --font-black: 900;
 
   /* Tamaños de fuente */
-  --fs-xs: 0.75rem;      /* 12px */
-  --fs-sm: 0.875rem;     /* 14px */
-  --fs-base: 1rem;       /* 16px */
-  --fs-lg: 1.125rem;     /* 18px */
-  --fs-xl: 1.25rem;      /* 20px */
-  --fs-2xl: 1.5rem;      /* 24px */
-  --fs-3xl: 1.875rem;    /* 30px */
-  --fs-4xl: 2.25rem;     /* 36px */
-  --fs-5xl: 3rem;        /* 48px */
+  --fs-xs: 0.75rem;
+  /* 12px */
+  --fs-sm: 0.875rem;
+  /* 14px */
+  --fs-base: 1rem;
+  /* 16px */
+  --fs-lg: 1.125rem;
+  /* 18px */
+  --fs-xl: 1.25rem;
+  /* 20px */
+  --fs-2xl: 1.5rem;
+  /* 24px */
+  --fs-3xl: 1.875rem;
+  /* 30px */
+  --fs-4xl: 2.25rem;
+  /* 36px */
+  --fs-5xl: 3rem;
+  /* 48px */
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -77,6 +91,7 @@ body {
   font-weight: var(--font-regular);
   color: var(--dark);
   background-color: var(--light);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
   line-height: 1.5;
   min-height: 100vh;
 }
@@ -101,6 +116,7 @@ header {
   box-shadow: var(--shadow-md);
   z-index: 1000;
   padding: var(--space-sm) var(--space-lg);
+  transition: background-color var(--transition-fast);
 }
 
 nav {
@@ -158,7 +174,8 @@ nav {
 /* hamburguer (desktop) */
 
 .hamburger {
-  display: none; /* oculto en pantallas grandes */
+  display: none;
+  /* oculto en pantallas grandes */
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -173,6 +190,7 @@ nav {
   border-radius: 2px;
   transition: all var(--transition-medium);
 }
+
 /* Animación hamburguesa activa (forma X) */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(7px, 7px);
@@ -185,6 +203,7 @@ nav {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -7px);
 }
+
 /* Main */
 
 main {
@@ -213,7 +232,8 @@ main {
 
 .hero-image-container {
   width: 100%;
-  aspect-ratio: 16 / 9; /* aquí decides lo achatada */
+  aspect-ratio: 16 / 9;
+  /* aquí decides lo achatada */
   overflow: hidden;
   border-radius: var(--radius-lg);
 }
@@ -272,9 +292,11 @@ main {
   cursor: pointer;
   border: 2px solid transparent;
 }
+
 .btn svg {
   flex-shrink: 0;
 }
+
 .btn i,
 .btn svg {
   width: 18px;
@@ -282,24 +304,28 @@ main {
 }
 
 .btn-primary {
-  background-color: var(--primary); /* stronger, higher contrast */
+  background-color: var(--primary);
+  /* stronger, higher contrast */
   color: var(--white);
   border-color: transparent;
-  box-shadow: 0 6px 18px rgba(91,110,225,0.18);
+  box-shadow: 0 6px 18px rgba(91, 110, 225, 0.18);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background-color: #3f4fd0; /* darker primary */
+  background-color: #3f4fd0;
+  /* darker primary */
   color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(63,79,208,0.25);
+  box-shadow: 0 10px 30px rgba(63, 79, 208, 0.25);
 }
 
 .btn-secondary {
-  background-color: rgba(124, 92, 255, 0.08); /* Fondo lila muy suave */
+  background-color: rgba(124, 92, 255, 0.08);
+  /* Fondo lila muy suave */
   color: var(--primary);
-  border: 2px solid rgba(124, 92, 255, 0.4); /* Borde semi-transparente */
+  border: 2px solid rgba(124, 92, 255, 0.4);
+  /* Borde semi-transparente */
 }
 
 .btn-secondary:hover,
@@ -307,13 +333,13 @@ main {
   background-color: var(--primary);
   color: var(--white);
   border-color: var(--primary);
-  box-shadow: 0 8px 24px rgba(91,110,225,0.12);
+  box-shadow: 0 8px 24px rgba(91, 110, 225, 0.12);
 }
 
 /* Make interactive elements more visible when focused */
 button:focus-visible,
 a.btn:focus-visible {
-  outline: 3px solid rgba(137,194,255,0.24);
+  outline: 3px solid rgba(137, 194, 255, 0.24);
   outline-offset: 3px;
 }
 
@@ -365,6 +391,7 @@ a.btn:focus-visible {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: var(--border);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .contact-form {
@@ -424,13 +451,13 @@ a.btn:focus-visible {
   cursor: pointer;
   transition: all var(--transition-fast);
   align-self: flex-start;
-  box-shadow: 0 6px 18px rgba(91,110,225,0.18);
+  box-shadow: 0 6px 18px rgba(91, 110, 225, 0.18);
 }
 
 .btn-submit:hover {
   background-color: #3f4fd0;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(63,79,208,0.25);
+  box-shadow: 0 10px 30px rgba(63, 79, 208, 0.25);
 }
 
 /* Footer */
@@ -478,18 +505,24 @@ a.btn:focus-visible {
 
 /* Animación heartbeat */
 @keyframes heartbeat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   14% {
     transform: scale(1.3);
   }
+
   28% {
     transform: scale(1);
   }
+
   42% {
     transform: scale(1.2);
   }
+
   70% {
     transform: scale(1);
   }
@@ -501,7 +534,8 @@ p,
 .about-card p,
 .skill-card p,
 .value-card p {
-  color: #3b3f55; /* stronger contrast than previous grey */
+  color: #3b3f55;
+  /* stronger contrast than previous grey */
   line-height: 1.9;
   font-size: var(--fs-base);
   letter-spacing: 0.15px;
@@ -519,7 +553,8 @@ body.dark-mode .about-card p,
 body.dark-mode .skill-card p,
 body.dark-mode .value-card p,
 body.dark-mode .footer-content p {
-  color: #dfe8fb; /* light, readable on dark background */
+  color: #dfe8fb;
+  /* light, readable on dark background */
 }
 
 /* Links inside paragraphs should remain high contrast */
@@ -534,6 +569,7 @@ body.dark-mode p a {
 
 /* Responsive paragraph sizes */
 @media (max-width: 768px) {
+
   p,
   .hero-text p {
     font-size: 0.98rem;
@@ -542,23 +578,29 @@ body.dark-mode p a {
 }
 
 @media (max-width: 420px) {
+
   p,
   .hero-text p {
     font-size: 0.95rem;
     line-height: 2;
   }
-  .hero-text p { margin-bottom: 0.75rem; }
+
+  .hero-text p {
+    margin-bottom: 0.75rem;
+  }
 }
 
 /* responsive */
 
 @media (max-width: 768px) {
   .hamburger {
-    display: flex; /* aparece la hamburguesa */
+    display: flex;
+    /* aparece la hamburguesa */
   }
 
   .nav-list {
-    display: none; /* se ocultan los list */
+    display: none;
+    /* se ocultan los list */
   }
 
   .nav-list.active {
@@ -585,8 +627,15 @@ body.dark-mode p a {
   }
 
   @keyframes slideDownMenu {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
 
@@ -618,7 +667,7 @@ body.dark-mode p a {
     width: 100%;
     text-align: center;
   }
-  
+
   .btn {
     width: 100%;
     justify-content: center;
@@ -627,18 +676,44 @@ body.dark-mode p a {
 
 
 @media (max-width: 768px) {
-  html { font-size: 15px; }
-  .hero-text h1 { font-size: 1.8rem; }
-  .hero-text h2 { font-size: 1.1rem; }
-  .skill-card h3 { font-size: 1.05rem; }
-  .hero-buttons { justify-content: stretch; }
-  .hero-buttons .btn { width: 100%; justify-content: center; }
+  html {
+    font-size: 15px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .skill-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .hero-buttons {
+    justify-content: stretch;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 420px) {
-  html { font-size: 14px; }
-  .hero-text h1 { font-size: 1.6rem; }
-  .hero-text p { font-size: 0.95rem; }
+  html {
+    font-size: 14px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
 }
 
 /* =============== ABOUT PAGE =============== */
@@ -687,6 +762,11 @@ body.dark-mode p a {
   max-width: 320px;
   margin: 0 auto;
   text-align: center;
+  transition: transform var(--transition-medium);
+}
+
+.polaroid-card:hover {
+  transform: rotate(-3deg) scale(1.05);
 }
 
 .polaroid-image {
@@ -725,6 +805,7 @@ body.dark-mode p a {
   margin: 6px auto 0 auto;
   border-radius: 2px;
 }
+
 .about-block p {
   color: var(--grey-dark);
   line-height: 1.8;
@@ -849,18 +930,24 @@ body.dark-mode p a {
 }
 
 @media (max-width: 768px) {
-  .skill-icon { width: 48px; height: 48px; }
+  .skill-icon {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 /* Dark mode */
 
 body.dark-mode {
-  background-color: #131521; /* Azul noche profundo */
-  color: #e2e8f0; /* Texto principal claro y suave */
+  background-color: #131521;
+  /* Azul noche profundo */
+  color: #e2e8f0;
+  /* Texto principal claro y suave */
 }
 
 body.dark-mode header {
-  background-color: #1e2136; /* Un tono más claro para elevar el header */
+  background-color: #1e2136;
+  /* Un tono más claro para elevar el header */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -875,13 +962,15 @@ body.dark-mode .nav-list a:hover {
 
 /* Arreglo para el menú móvil en modo oscuro */
 body.dark-mode .nav-list.active {
-  background-color: #131521; /* Azul noche para ocupar la pantalla completa fluidamente */
+  background-color: #131521;
+  /* Azul noche para ocupar la pantalla completa fluidamente */
   border: none;
   box-shadow: none;
 }
 
 body.dark-mode .logo {
-  color: var(--primary); /* Mantenemos el color de marca, resalta bien en fondo oscuro */
+  color: var(--primary);
+  /* Mantenemos el color de marca, resalta bien en fondo oscuro */
 }
 
 body.dark-mode .btn-secondary {
@@ -931,7 +1020,8 @@ body.dark-mode h2 {
 }
 
 body.dark-mode .hero-text h1 {
-  color: var(--primary); /* Mantener el branding */
+  color: var(--primary);
+  /* Mantener el branding */
 }
 
 /* Footer contrast */
@@ -941,7 +1031,8 @@ body.dark-mode .footer-content {
 
 /* Dark mode toggle icon contrast */
 body.dark-mode #dark-mode-toggle {
-  color: #fbbf24; /* Color sol cálido */
+  color: #fbbf24;
+  /* Color sol cálido */
 }
 
 body.dark-mode #dark-mode-toggle:hover {

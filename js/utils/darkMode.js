@@ -1,35 +1,43 @@
 const darkMode = () => {
   const button = document.getElementById('dark-mode-toggle');
+  const body = document.body;
   if (!button) return;
 
-  const savePref = (isDark) => {
-    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) { /* ignore */ }
-  };
-
-  const setIcon = (isDark) => {
-    // Reinyectamos la etiqueta en el botón para evitar perderla cuando Lucide la convierte en SVG
-    button.innerHTML = `<i data-lucide="${isDark ? 'sun' : 'moon'}"></i>`;
+  // 1. FUNCIÓN QUE APLICA EL CAMBIO Y GUARDA
+  const aplicarModo = (activar) => {
+    // Ponemos o quitamos la clase al body
+    body.classList.toggle("dark-mode", activar);
+    
+    // Cambiamos el icono del botón (usando tu lógica de Lucide)
+    button.innerHTML = `<i data-lucide="${activar ? 'sun' : 'moon'}"></i>`;
     if (window.lucide) lucide.createIcons();
+
+    // GUARDAMOS en el "bloc de notas" del navegador
+    localStorage.setItem("theme", activar);
   };
 
-  const applyMode = (isDark) => {
-    if (isDark) document.body.classList.add('dark-mode');
-    else document.body.classList.remove('dark-mode');
-    setIcon(isDark);
+  // 2. FUNCIÓN QUE CARGA LO QUE HABÍA GUARDADO AL ABRIR LA WEB
+  const cargarPreferencia = () => {
+    const guardado = localStorage.getItem("theme");
+
+    // Si nunca ha entrado, miramos la preferencia de su Windows/Mac
+    if (guardado === null) {
+        const prefiereDarkSistema = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        aplicarModo(prefiereDarkSistema);
+    } else {
+        // Si ya había entrado, convertimos el texto "true" en un valor real true
+        aplicarModo(guardado === "true");
+    }
   };
 
-  // initial preference: localStorage -> prefers-color-scheme -> default light
-  let stored;
-  try { stored = localStorage.getItem('theme'); } catch (e) { stored = null; }
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialDark = stored ? stored === 'dark' : prefersDark;
+  // Ejecutamos al cargar
+  cargarPreferencia();
 
-  applyMode(initialDark);
-
-  button.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-mode');
-    savePref(isDark);
-    setIcon(isDark);
+  // 3. EVENTO CLICK
+  button.addEventListener("click", () => {
+    const estaActivo = body.classList.contains("dark-mode");
+    // Si está activo, le pasamos false (para desactivar). Si no, true.
+    aplicarModo(!estaActivo);
   });
 };
 
