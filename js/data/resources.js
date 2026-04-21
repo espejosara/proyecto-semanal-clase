@@ -44,7 +44,7 @@ const resources = [
       { title: "Smashing Magazine", url: "https://www.smashingmagazine.com/", note: "Artículos de alta calidad para desarrolladores y diseñadores." },
       { title: "A List Apart", url: "https://alistapart.com/", note: "Explora el diseño y desarrollo de contenido web." },
       { title: "Dev.to", url: "https://dev.to/", note: "Comunidad de desarrolladores con artículos y tutoriales" },
-      { title: "Stack Overflow", url: "https://stackoverflow.com/", note: "La mayor comunidad de preguntas y respuestas para programadores." }
+      { title: "Stack Overflow", url: "https://stackoverflow.com/", note: "La mayor comunidad de preguntas y respuestas para programadores." },
       { title: "Frontend Focus", url: "https://frontendfoc.us/", note: "Newsletter semanal de noticias frontend" }
     ]
   },
