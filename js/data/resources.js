@@ -2,11 +2,11 @@ const resources = [
   {
     category: "Documentación Oficial",
     items: [
-      { title: "MDN Web Docs", url: "https://developer.mozilla.org/", note: "Referencia esencial para HTML, CSS y JS." },
-      { title: "W3C Specifications", url: "https://www.w3.org/", note: "Estándares oficiales de la Web." },
-      { title: "Can I Use", url: "https://caniuse.com/", note: "Tablas de compatibilidad de navegadores." },
-      { title: "DevDocs", url: "https://devdocs.io/", note: "Documentación API rápida y offline." },
-      { title: "Form Submit", url: "https://formsubmit.co/", note: "Endpoints gratuitos para formularios HTML." }
+      { title: "MDN Web Docs", url: "https://developer.mozilla.org/", note: "La referencia definitiva de HTML, CSS y JavaScript" },
+      { title: "W3C Specifications", url: "https://www.w3.org/TR/", note: "Estándares web oficiales" },
+      { title: "Can I Use", url: "https://caniuse.com/", note: "Compatibilidad de características web en navegadores" },
+      { title: "DevDocs", url: "https://devdocs.io/", note: "Documentación de múltiples tecnologías en un solo lugar" },
+      { title: "Form Submit", url: "https://formsubmit.co", note: "envía emails sin necesidad de conectar un backend" }
     ]
   },
   {
@@ -32,10 +32,10 @@ const resources = [
   {
     category: "Accesibilidad",
     items: [
-      { title: "WCAG Guidelines", url: "https://www.w3.org/WAI/standards-guidelines/wcag/", note: "Pautas oficiales de accesibilidad web." },
-      { title: "WebAIM", url: "https://webaim.org/", note: "Recursos, artículos y formación sobre accesibilidad." },
-      { title: "WAVE Tool", url: "https://wave.webaim.org/", note: "Herramienta visual de evaluación de accesibilidad." },
-      { title: "Axe DevTools", url: "https://www.deque.com/axe/devtools/", note: "Extensión para testear accesibilidad desde el navegador." }
+      { title: "WCAG Guidelines", url: "https://www.w3.org/WAI/WCAG21/quickref/", note: "Referencia rápida de pautas de accesibilidad" },
+      { title: "WebAIM", url: "https://webaim.org/", note: "Recursos y herramientas de accesibilidad web" },
+      { title: "WAVE Tool", url: "https://wave.webaim.org/", note: "Evaluador de accesibilidad web" },
+      { title: "Axe DevTools", url: "https://www.deque.com/axe/devtools/", note: "Extensión de navegador para testing de accesibilidad" }
     ]
   },
   {
@@ -43,7 +43,9 @@ const resources = [
     items: [
       { title: "Smashing Magazine", url: "https://www.smashingmagazine.com/", note: "Artículos de alta calidad para desarrolladores y diseñadores." },
       { title: "A List Apart", url: "https://alistapart.com/", note: "Explora el diseño y desarrollo de contenido web." },
+      { title: "Dev.to", url: "https://dev.to/", note: "Comunidad de desarrolladores con artículos y tutoriales" },
       { title: "Stack Overflow", url: "https://stackoverflow.com/", note: "La mayor comunidad de preguntas y respuestas para programadores." }
+      { title: "Frontend Focus", url: "https://frontendfoc.us/", note: "Newsletter semanal de noticias frontend" }
     ]
   },
   {
@@ -51,6 +53,7 @@ const resources = [
     items: [
       { title: "Awwwards", url: "https://www.awwwards.com/", note: "Premios a los mejores y más creativos diseños web." },
       { title: "Dribbble", url: "https://dribbble.com/", note: "Plataforma para descubrir portfolios de diseño digital." },
+      { title: "Behance", url: "https://www.behance.net/", note: "Plataforma de portfolios creativos" },
       { title: "Coolors", url: "https://coolors.co/", note: "Generador de paletas de colores súper rápido." },
       { title: "Google Fonts", url: "https://fonts.google.com/", note: "Directorio inmenso de fuentes web gratuitas." }
     ]

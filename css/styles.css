@@ -570,6 +570,7 @@ margin-bottom: var(--space-2xl);
 margin-bottom: var(--space-2xl);
 }
 
+.section h1,
 .section h2 {
 font-size: var(--fs-4xl);
 font-weight: var(--font-bold);
@@ -578,6 +579,12 @@ margin-bottom: var(--space-lg);
 padding-bottom: var(--space-sm);
 border-bottom: 3px solid var(--secondary);
 display: inline-block;
+}
+
+.section-subtitle {
+color: var(--grey-dark);
+font-size: var(--fs-lg);
+margin-bottom: var(--space-xl);
 }
 
 .about-hero-text h1 {
@@ -846,6 +853,7 @@ body.dark-mode .hero-text p,
 body.dark-mode .about-card p,
 body.dark-mode .skill-card p,
 body.dark-mode .value-card p,
+body.dark-mode .section-subtitle,
 body.dark-mode .footer-content p {
 color: #dfe8fb;
 }
