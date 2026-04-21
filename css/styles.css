@@ -76,10 +76,6 @@
 --transition-medium: 0.35s ease;
 }
 
-* {
-box-sizing: border-box;
-}
-
 /* =============== ESTILOS GLOBALES =============== */
 
 html {
@@ -103,6 +99,38 @@ textarea:focus-visible {
 outline: 3px solid var(--accent);
 outline-offset: 3px;
 border-radius: var(--radius-sm);
+}
+
+/* Paragraphs: contrast and readability */
+p,
+.hero-text p,
+.about-card p,
+.skill-card p,
+.value-card p {
+color: #3b3f55;
+/* stronger contrast than previous grey */
+line-height: 1.9;
+font-size: var(--fs-base);
+letter-spacing: 0.15px;
+margin-bottom: var(--space-md);
+}
+
+.footer-content p {
+color: #94a3b8;
+}
+
+/* Links inside paragraphs should remain high contrast */
+p a {
+color: var(--primary);
+text-decoration: underline;
+}
+
+/* =============== LAYOUT =============== */
+
+main {
+max-width: var(--max-width);
+margin: 0 auto;
+padding: 120px var(--space-lg) var(--space-2xl);
 }
 
 /* Header */
@@ -204,21 +232,6 @@ opacity: 0;
 transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Main */
-
-main {
-max-width: var(--max-width);
-margin: 0 auto;
-padding: 120px var(--space-lg) var(--space-2xl);
-}
-
-#about,
-#skills,
-#cheatsheets,
-#recursos {
-scroll-margin-top: 110px;
-}
-
 .hero {
 margin-bottom: var(--space-2xl);
 }
@@ -277,6 +290,8 @@ justify-content: flex-start;
 margin-top: var(--space-lg);
 width: 100%;
 }
+
+/* =============== COMPONENTES =============== */
 
 .btn {
 width: auto;
@@ -341,22 +356,6 @@ button:focus-visible,
 a.btn:focus-visible {
 outline: 3px solid rgba(137, 194, 255, 0.24);
 outline-offset: 3px;
-}
-
-/* Sections */
-
-.section {
-margin-bottom: var(--space-2xl);
-}
-
-.section h2 {
-font-size: var(--fs-4xl);
-font-weight: var(--font-bold);
-color: var(--primary);
-margin-bottom: var(--space-lg);
-padding-bottom: var(--space-sm);
-border-bottom: 3px solid var(--secondary);
-display: inline-block;
 }
 
 /* Contact Section */
@@ -496,6 +495,18 @@ color: var(--highlight);
 margin: var(--space-xs) 0;
 }
 
+/* Light mode toggle icon (Moon) */
+#dark-mode-toggle {
+transition: transform var(--transition-fast), color var(--transition-fast);
+}
+#dark-mode-toggle:hover {
+color: var(--primary); /* Le damos el morado primario al pasar el mouse */
+transform: rotate(-15deg); /* Movimiento para la luna */
+}
+
+
+/* =============== ANIMACIONES (KEYFRAMES) =============== */
+
 .heart {
 display: inline-block;
 color: var(--secondary);
@@ -528,191 +539,14 @@ transform: scale(1);
 }
 }
 
-/* Paragraphs: contrast and readability */
-p,
-.hero-text p,
-.about-card p,
-.skill-card p,
-.value-card p {
-color: #3b3f55;
-/* stronger contrast than previous grey */
-line-height: 1.9;
-font-size: var(--fs-base);
-letter-spacing: 0.15px;
-margin-bottom: var(--space-md);
-}
-
-.footer-content p {
-color: #94a3b8;
-}
-
-/* Dark mode paragraphs */
-body.dark-mode p,
-body.dark-mode .hero-text p,
-body.dark-mode .about-card p,
-body.dark-mode .skill-card p,
-body.dark-mode .value-card p,
-body.dark-mode .footer-content p {
-color: #dfe8fb;
-/* light, readable on dark background */
-}
-
-/* Links inside paragraphs should remain high contrast */
-p a {
-color: var(--primary);
-text-decoration: underline;
-}
-
-body.dark-mode p a {
-color: #bfe1ff;
-}
-
-/* Responsive paragraph sizes */
-@media (max-width: 768px) {
-
-p,
-.hero-text p {
-font-size: 0.98rem;
-line-height: 1.95;
-}
-}
-
-@media (max-width: 420px) {
-
-p,
-.hero-text p {
-font-size: 0.95rem;
-line-height: 2;
-}
-
-.hero-text p {
-margin-bottom: 0.75rem;
-}
-}
-
-/* responsive */
-
-@media (max-width: 768px) {
-.hamburger {
-display: flex;
-/* aparece la hamburguesa */
-}
-
-.nav-list {
-display: none;
-/* se ocultan los list */
-}
-
-.nav-list.active {
-display: flex;
-flex-direction: column;
-position: fixed;
-top: 80px;
-left: 0;
-width: 100%;
-height: calc(100vh - 80px);
-background-color: var(--white);
-padding: 10vh var(--space-lg);
-align-items: center;
-gap: var(--space-2xl);
-z-index: 999;
-border-radius: 0;
-box-shadow: none;
-animation: slideDownMenu 0.3s ease forwards;
-}
-
-.nav-list.active a {
-font-size: var(--fs-2xl);
-font-weight: var(--font-bold);
-}
-
 @keyframes slideDownMenu {
 from {
 opacity: 0;
 transform: translateY(-10px);
 }
-
 to {
 opacity: 1;
 transform: translateY(0);
-}
-}
-
-
-main {
-padding: 120px var(--space-md) var(--space-2xl);
-}
-
-header {
-padding: var(--space-sm) var(--space-md);
-}
-
-.hero-text h1 {
-font-size: clamp(2rem, 8vw, 3rem);
-}
-
-.hero-text h2 {
-font-size: clamp(1.2rem, 5vw, 1.5rem);
-}
-
-.contact-container {
-padding: var(--space-lg);
-}
-
-.contact-section {
-padding: 120px var(--space-md) var(--space-xl);
-}
-
-.btn-submit {
-width: 100%;
-text-align: center;
-}
-
-.btn {
-width: 100%;
-justify-content: center;
-}
-}
-
-
-@media (max-width: 768px) {
-html {
-font-size: 15px;
-}
-
-.hero-text h1 {
-font-size: 1.8rem;
-}
-
-.hero-text h2 {
-font-size: 1.1rem;
-}
-
-.skill-card h3 {
-font-size: 1.05rem;
-}
-
-.hero-buttons {
-justify-content: stretch;
-}
-
-.hero-buttons .btn {
-width: 100%;
-justify-content: center;
-}
-}
-
-@media (max-width: 420px) {
-html {
-font-size: 14px;
-}
-
-.hero-text h1 {
-font-size: 1.6rem;
-}
-
-.hero-text p {
-font-size: 0.95rem;
 }
 }
 
@@ -730,6 +564,20 @@ grid-template-columns: 1.4fr 1fr;
 gap: var(--space-2xl);
 align-items: center;
 margin-bottom: var(--space-2xl);
+}
+
+.section {
+margin-bottom: var(--space-2xl);
+}
+
+.section h2 {
+font-size: var(--fs-4xl);
+font-weight: var(--font-bold);
+color: var(--primary);
+margin-bottom: var(--space-lg);
+padding-bottom: var(--space-sm);
+border-bottom: 3px solid var(--secondary);
+display: inline-block;
 }
 
 .about-hero-text h1 {
@@ -856,26 +704,6 @@ color: var(--grey-dark);
 margin-bottom: 0;
 }
 
-@media (max-width: 768px) {
-.about-page {
-padding: 120px var(--space-md) var(--space-xl);
-}
-
-.about-hero {
-grid-template-columns: 1fr;
-gap: var(--space-lg);
-}
-
-.polaroid-card {
-transform: rotate(0deg);
-max-width: 100%;
-}
-
-.values-grid {
-grid-template-columns: 1fr;
-}
-}
-
 /* Skills list */
 #skills-list {
 display: grid;
@@ -929,15 +757,11 @@ border-radius: 999px;
 font-size: var(--fs-xs);
 }
 
-@media (max-width: 768px) {
-.skill-icon {
-width: 48px;
-height: 48px;
-}
-}
+/* =============== DARK MODE =============== */
 
-/* Dark mode */
-
+/*
+* Reglas generales del modo oscuro
+*/
 body.dark-mode {
 background-color: #131521;
 /* Azul noche profundo */
@@ -945,6 +769,9 @@ color: #e2e8f0;
 /* Texto principal claro y suave */
 }
 
+/*
+* Componentes en modo oscuro
+*/
 body.dark-mode header {
 background-color: #1e2136;
 /* Un tono más claro para elevar el header */
@@ -958,14 +785,6 @@ color: #94a3b8;
 
 body.dark-mode .nav-list a:hover {
 color: var(--secondary);
-}
-
-/* Arreglo para el menú móvil en modo oscuro */
-body.dark-mode .nav-list.active {
-background-color: #131521;
-/* Azul noche para ocupar la pantalla completa fluidamente */
-border: none;
-box-shadow: none;
 }
 
 body.dark-mode .logo {
@@ -984,6 +803,14 @@ body.dark-mode .btn-secondary:focus-visible {
 background-color: rgba(165, 180, 252, 0.15);
 color: #fff;
 border-color: #a5b4fc;
+}
+
+/* Arreglo para el menú móvil en modo oscuro */
+body.dark-mode .nav-list.active {
+background-color: #131521;
+/* Azul noche para ocupar la pantalla completa fluidamente */
+border: none;
+box-shadow: none;
 }
 
 /* Tarjetas (Skills, About, Values) */
@@ -1013,6 +840,16 @@ background-color: rgba(124, 92, 255, 0.15);
 color: #b59eff;
 }
 
+/* Dark mode paragraphs */
+body.dark-mode p,
+body.dark-mode .hero-text p,
+body.dark-mode .about-card p,
+body.dark-mode .skill-card p,
+body.dark-mode .value-card p,
+body.dark-mode .footer-content p {
+color: #dfe8fb;
+}
+
 /* Headings contrast */
 body.dark-mode h1,
 body.dark-mode h2 {
@@ -1029,19 +866,9 @@ body.dark-mode .footer-content {
 color: #94a3b8;
 }
 
-/* Light mode toggle icon (Moon) */
-#dark-mode-toggle {
-transition: transform var(--transition-fast), color var(--transition-fast);
-}
-#dark-mode-toggle:hover {
-color: var(--primary); /* Le damos el morado primario al pasar el mouse */
-transform: rotate(-15deg); /* Movimiento para la luna */
-}
-
 /* Dark mode toggle icon contrast */
 body.dark-mode #dark-mode-toggle {
-color: #fbbf24;
-/* Color sol cálido */
+color: #fbbf24; /* Color sol cálido */
 }
 
 body.dark-mode #dark-mode-toggle:hover {
@@ -1093,4 +920,190 @@ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 
 body.dark-mode .polaroid-card figcaption {
 color: #94a3b8;
+}
+
+body.dark-mode p a {
+color: #bfe1ff;
+}
+
+/* =============== TABS DE RECURSOS =============== */
+
+.tabs-nav {
+display: flex;
+flex-wrap: wrap;
+gap: var(--space-sm);
+margin-bottom: var(--space-lg);
+border-bottom: 2px solid var(--grey-light);
+padding-bottom: var(--space-sm);
+}
+
+.tab-btn {
+padding: var(--space-sm) var(--space-md);
+font-weight: var(--font-medium);
+color: var(--grey-dark);
+border-radius: var(--radius-sm);
+transition: all var(--transition-fast);
+}
+
+.tab-btn.active {
+background-color: var(--accent);
+color: var(--white);
+}
+
+.tab-pane {
+display: none;
+animation: fadeIn var(--transition-medium);
+}
+
+.tab-pane.active {
+display: block;
+}
+
+.resources-list {
+display: grid;
+gap: var(--space-md);
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.resources-list li {
+background: var(--white);
+padding: var(--space-md);
+border-radius: var(--radius-md);
+box-shadow: var(--shadow-sm);
+border: var(--border);
+}
+
+.resource-title {
+color: var(--primary);
+font-weight: var(--font-bold);
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tabs en modo oscuro */
+body.dark-mode .tabs-nav { border-color: rgba(255, 255, 255, 0.1); }
+body.dark-mode .tab-btn { color: #94a3b8; }
+body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgba(255,255,255,0.05); }
+
+/* =============== MEDIA QUERIES (RESPONSIVE) =============== */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  header {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .nav-list.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: var(--white);
+    padding: 10vh var(--space-lg);
+    align-items: center;
+    gap: var(--space-2xl);
+    z-index: 999;
+    border-radius: 0;
+    box-shadow: none;
+    animation: slideDownMenu 0.3s ease forwards;
+  }
+
+  .nav-list.active a {
+    font-size: var(--fs-2xl);
+    font-weight: var(--font-bold);
+  }
+
+  main {
+    padding: 120px var(--space-md) var(--space-2xl);
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero-text h2 {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+
+  .btn,
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-buttons {
+    justify-content: stretch;
+  }
+
+  .contact-section {
+    padding: 120px var(--space-md) var(--space-xl);
+  }
+
+  .contact-container {
+    padding: var(--space-lg);
+  }
+
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  p,
+  .hero-text p {
+    font-size: 0.98rem;
+    line-height: 1.95;
+  }
+
+  .skill-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* About Page Responsive */
+  .about-page {
+    padding: 120px var(--space-md) var(--space-xl);
+  }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .polaroid-card {
+    transform: rotate(0deg);
+    max-width: 100%;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  html {
+    font-size: 14px;
+  }
+
+  p,
+  .hero-text p {
+    font-size: 0.95rem;
+    line-height: 2;
+  }
 }

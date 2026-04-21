@@ -2,6 +2,8 @@ import { header, footer } from './templates/template.js';
 import darkMode from './utils/darkMode.js';
 import menu from './utils/menu.js';
 import skillsList from './utils/skillsList.js';
+import cheatsheetsList from './utils/cheatsheetsList.js';
+import resourcesGenerator from './utils/resourcesGenerator.js';
 
 const headerContainer = document.getElementById('header');
 const footerContainer = document.getElementById('footer');
@@ -25,6 +27,8 @@ if (footerContainer) {
 }
 
 skillsList();
+cheatsheetsList();
+resourcesGenerator();
 darkMode();
 menu();
 
