@@ -1029,6 +1029,15 @@ body.dark-mode .footer-content {
 color: #94a3b8;
 }
 
+/* Light mode toggle icon (Moon) */
+#dark-mode-toggle {
+transition: transform var(--transition-fast), color var(--transition-fast);
+}
+#dark-mode-toggle:hover {
+color: var(--primary); /* Le damos el morado primario al pasar el mouse */
+transform: rotate(-15deg); /* Movimiento para la luna */
+}
+
 /* Dark mode toggle icon contrast */
 body.dark-mode #dark-mode-toggle {
 color: #fbbf24;
