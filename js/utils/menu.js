@@ -15,7 +15,14 @@ const menu = () => {
   });
 
   links.forEach((link) => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+      // Si el enlace es el menú desplegable, lo abrimos y no cerramos el menú general
+      if (link.id === 'cheatsheets-toggle') {
+        e.preventDefault(); // Evita que la página salte hacia arriba
+        link.parentElement.classList.toggle('active');
+        return;
+      }
+
       hamburger.classList.remove('active');
       navLinks.classList.remove('active');
       /* Libera el scroll al hacer clic en un enlace */

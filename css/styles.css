@@ -199,6 +199,40 @@ color: var(--secondary);
 width: 100%;
 }
 
+/* Desplegable (Dropdown) Desktop */
+.dropdown {
+position: relative;
+}
+.dropdown-menu {
+position: absolute;
+top: 100%;
+left: 0;
+background-color: var(--white);
+min-width: 180px;
+box-shadow: var(--shadow-sm);
+border-radius: var(--radius-sm);
+padding: var(--space-sm) 0;
+opacity: 0;
+visibility: hidden;
+transform: translateY(10px);
+transition: all var(--transition-fast);
+display: flex;
+flex-direction: column;
+z-index: 100;
+}
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
+.dropdown-menu a::after { display: none; /* Quitamos la línea de abajo */ }
+.dropdown-menu a { padding: var(--space-xs) var(--space-lg); display: block; }
+.dropdown-menu a:hover {
+background-color: var(--grey-light);
+color: var(--primary);
+}
+
 /* hamburguer (desktop) */
 
 .hamburger {
@@ -711,8 +745,9 @@ color: var(--grey-dark);
 margin-bottom: 0;
 }
 
-/* Skills list */
-#skills-list {
+/* Skills list y Cards del escaparate */
+#skills-list,
+.cards-grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 gap: var(--space-lg);
@@ -818,6 +853,16 @@ background-color: #131521;
 /* Azul noche para ocupar la pantalla completa fluidamente */
 border: none;
 box-shadow: none;
+}
+
+/* Dropdown en modo oscuro */
+body.dark-mode .dropdown-menu {
+background-color: #1e2136;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+border: 1px solid rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .dropdown-menu a:hover {
+background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Tarjetas (Skills, About, Values) */
@@ -1158,6 +1203,25 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     font-size: var(--fs-2xl);
     font-weight: var(--font-bold);
   }
+
+  /* Dropdown en móvil */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    display: none; /* Oculto hasta que le den click al toggle */
+    align-items: center;
+    margin-top: var(--space-md);
+    gap: var(--space-md);
+  }
+  .dropdown.active .dropdown-menu {
+    display: flex;
+  }
+  body.dark-mode .dropdown-menu { border: none; box-shadow: none; background: transparent; }
 
   main {
     padding: 120px var(--space-md) var(--space-2xl);

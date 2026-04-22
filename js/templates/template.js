@@ -12,8 +12,15 @@ export const header = `
       <li><a href="./index.html">Home</a></li>
       <li><a href="./about.html">About</a></li>
       <li><a href="./index.html#skills">Skills</a></li>
-      <li><a href="./index.html#cheatsheets">Cheatsheets</a></li>
-      <li><a href="./index.html#recursos">Recursos</a></li>
+      <li class="dropdown">
+        <a href="#" id="cheatsheets-toggle" style="display:flex; align-items:center; gap:4px;">Cheatsheets <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="./cheatsheet-html.html">HTML5</a></li>
+          <li><a href="./cheatsheet-css.html">CSS3</a></li>
+          <li><a href="./cheatsheet-js.html">JavaScript</a></li>
+        </ul>
+      </li>
+      <li><a href="./recursos.html">Recursos</a></li>
       <li><a href="./contacto.html">Contacto</a></li>
     </ul>
 
@@ -30,7 +37,7 @@ export const footer = `
       <a href="./about.html">About</a>
       <a href="./index.html#skills">Skills</a>
       <a href="./index.html#cheatsheets">Cheatsheets</a>
-      <a href="./index.html#recursos">Recursos</a>
+      <a href="./recursos.html">Recursos</a>
       <a href="./contacto.html">Contacto</a>
     </nav>
 
