@@ -96,7 +96,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-outline: 3px solid var(--accent);
+outline: 3px solid rgba(124, 92, 255, 0.5); /* Anillo lila en lugar de celeste */
 outline-offset: 3px;
 border-radius: var(--radius-sm);
 }
@@ -362,11 +362,10 @@ box-shadow: 0 6px 18px rgba(91, 110, 225, 0.18);
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-background-color: #3f4fd0;
-/* darker primary */
+background-color: #5c38f5; /* Un violeta profundo, sin azul */
 color: var(--white);
 transform: translateY(-2px);
-box-shadow: 0 10px 30px rgba(63, 79, 208, 0.25);
+box-shadow: 0 10px 30px rgba(92, 56, 245, 0.25);
 }
 
 .btn-secondary {
@@ -388,7 +387,7 @@ box-shadow: 0 8px 24px rgba(91, 110, 225, 0.12);
 /* Make interactive elements more visible when focused */
 button:focus-visible,
 a.btn:focus-visible {
-outline: 3px solid rgba(137, 194, 255, 0.24);
+outline: 3px solid rgba(124, 92, 255, 0.3);
 outline-offset: 3px;
 }
 
@@ -464,8 +463,8 @@ opacity: 1;
 .form-group input:focus,
 .form-group textarea:focus {
 outline: none;
-border-color: var(--accent);
-box-shadow: 0 0 0 3px rgba(137, 194, 255, 0.2);
+border-color: var(--primary);
+box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.2);
 }
 
 .form-group textarea {
@@ -488,9 +487,9 @@ box-shadow: 0 6px 18px rgba(91, 110, 225, 0.18);
 }
 
 .btn-submit:hover {
-background-color: #3f4fd0;
+background-color: #5c38f5;
 transform: translateY(-2px);
-box-shadow: 0 10px 30px rgba(63, 79, 208, 0.25);
+box-shadow: 0 10px 30px rgba(92, 56, 245, 0.25);
 }
 
 /* Footer */
@@ -762,6 +761,21 @@ padding: calc(var(--space-md) * 0.9);
 box-shadow: var(--shadow-sm);
 border: var(--border);
 text-align: center;
+transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+/* Efecto HOVER (Para el ratón en el ordenador: la tarjeta se eleva) */
+a.skill-card:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-md);
+border-color: var(--secondary);
+}
+
+/* Efecto ACTIVE (Para el dedo en el móvil: la tarjeta se hunde y oscurece) */
+a.skill-card:active {
+transform: translateY(0);
+box-shadow: var(--shadow-sm);
+background-color: var(--grey-light);
 }
 
 .skill-icon {
@@ -884,6 +898,15 @@ body.dark-mode .skill-card p,
 body.dark-mode .about-card p,
 body.dark-mode .value-card p {
 color: #94a3b8;
+}
+
+/* Efectos hover/active de tarjetas enlace en modo oscuro */
+body.dark-mode a.skill-card:hover {
+border-color: var(--primary);
+}
+
+body.dark-mode a.skill-card:active {
+background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Etiquetas (Tags) de las skills en modo oscuro */
