@@ -982,46 +982,62 @@ color: #bfe1ff;
 /* =============== CHEATSHEETS PAGE =============== */
 
 .cheatsheet-page {
-display: grid;
-grid-template-columns: 260px 1fr;
-gap: var(--space-2xl);
-align-items: start;
+display: block; /* Quitamos las dos columnas */
 }
 
 .sticky-nav {
 position: sticky;
-top: 100px; /* Distancia desde arriba (debajo del header) */
+top: 80px; /* Justo debajo del header principal (que mide 80px) */
+z-index: 90; /* Por debajo del header pero por encima del texto */
 background-color: var(--white);
-padding: var(--space-lg);
+padding: var(--space-sm) var(--space-md);
 border-radius: var(--radius-md);
 box-shadow: var(--shadow-sm);
 border: var(--border);
+margin-bottom: var(--space-xl);
+overflow-x: auto; /* Permite scroll horizontal en móviles */
+scrollbar-width: thin; /* Barra finita en Firefox */
+scrollbar-color: var(--grey) transparent;
+}
+
+/* Diseñamos una barra de scroll finita y elegante en Chrome/Safari */
+.sticky-nav::-webkit-scrollbar {
+height: 4px;
+}
+.sticky-nav::-webkit-scrollbar-track {
+background: transparent;
+}
+.sticky-nav::-webkit-scrollbar-thumb {
+background: var(--grey);
+border-radius: 4px;
 }
 
 .sticky-nav h3 {
-color: var(--primary);
-font-weight: var(--font-bold);
-margin-bottom: var(--space-md);
-font-size: var(--fs-xl);
-border-bottom: 2px solid var(--grey-light);
-padding-bottom: var(--space-xs);
+display: none; /* Ocultamos el título "Contenido" para ahorrar espacio */
 }
 
 .sticky-nav ul {
 display: flex;
-flex-direction: column;
+flex-direction: row; /* Ponemos la lista en horizontal */
 gap: var(--space-sm);
+width: max-content; /* Evita que los botones se aplasten si no caben */
+padding-bottom: 6px; /* Espacio para que respire con la barra de scroll */
 }
 
 .sticky-nav a {
 color: var(--grey-dark);
 font-weight: var(--font-medium);
-transition: color var(--transition-fast), padding-left var(--transition-fast);
+font-size: var(--fs-sm);
+background-color: var(--grey-light);
+padding: var(--space-xs) var(--space-md);
+border-radius: 999px; /* Botones redonditos tipo píldora */
+transition: all var(--transition-fast);
+white-space: nowrap; /* Evita que las palabras se partan o deformen */
 }
 
 .sticky-nav a:hover {
-color: var(--secondary);
-padding-left: 5px; /* Pequeño efecto de movimiento al pasar el ratón */
+background-color: var(--primary);
+color: var(--white);
 }
 
 /* Bloques de código tipo Editor */
@@ -1084,15 +1100,18 @@ body.dark-mode .sticky-nav {
 background-color: #1e2136;
 border-color: rgba(255, 255, 255, 0.05);
 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
-body.dark-mode .sticky-nav h3 {
-border-color: rgba(255, 255, 255, 0.1);
+body.dark-mode .sticky-nav::-webkit-scrollbar-thumb {
+background: rgba(255, 255, 255, 0.2);
 }
 body.dark-mode .sticky-nav a {
+background-color: rgba(255, 255, 255, 0.05);
 color: #94a3b8;
 }
 body.dark-mode .sticky-nav a:hover {
-color: var(--secondary);
+background-color: var(--primary);
+color: var(--white);
 }
 body.dark-mode p code,
 body.dark-mode li code {
@@ -1171,6 +1190,19 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
 
   header {
     padding: var(--space-sm) var(--space-md);
+  }
+  
+  /* Reordenamos la barra superior por UX (Modo Oscuro -> Logo -> Hamburguesa) */
+  #dark-mode-toggle {
+    order: 1;
+  }
+  .logo {
+    order: 2;
+    margin: 0 auto; /* Centra el logo en la pantalla */
+    transform: translateX(-15px); /* Ajuste visual ligero para que quede perfectamente centrado */
+  }
+  .hamburger {
+    order: 3;
   }
 
   .hamburger {
@@ -1288,13 +1320,9 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     grid-template-columns: 1fr;
   }
 
-  /* Cheatsheets Responsive */
-  .cheatsheet-page {
-    grid-template-columns: 1fr; /* Pasa a ser de una sola columna */
-  }
-  
-  .sticky-nav {
-    display: none; /* Ocultamos el menú lateral en móviles */
+  /* Aumentamos un poco la letra del código en móviles para mejor lectura */
+  .cheatsheet-content pre {
+    font-size: 0.95rem; 
   }
 }
 
