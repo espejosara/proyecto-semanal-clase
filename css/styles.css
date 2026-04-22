@@ -1236,6 +1236,14 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     font-weight: var(--font-bold);
   }
 
+  /* Sub-enlaces más pequeños en móvil para notar la jerarquía */
+  .nav-list.active .dropdown-menu a {
+    font-size: var(--fs-xl);
+    font-weight: var(--font-medium);
+    color: var(--grey-dark);
+  }
+  body.dark-mode .nav-list.active .dropdown-menu a { color: #94a3b8; }
+
   /* Dropdown en móvil */
   .dropdown-menu {
     position: static;
