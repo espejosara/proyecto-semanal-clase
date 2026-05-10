@@ -761,6 +761,8 @@ padding: calc(var(--space-md) * 0.9);
 box-shadow: var(--shadow-sm);
 border: var(--border);
 text-align: center;
+display: flex;
+flex-direction: column;
 transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
@@ -802,7 +804,8 @@ display: flex;
 flex-wrap: wrap;
 gap: 0.5rem;
 justify-content: center;
-margin-top: var(--space-sm);
+margin-top: auto;
+padding-top: var(--space-sm);
 }
 
 .skill-tags span {
@@ -811,6 +814,12 @@ color: var(--primary);
 padding: 0.25rem 0.6rem;
 border-radius: 999px;
 font-size: var(--fs-xs);
+}
+
+/* Aseguramos que las tarjetas de proyectos y skills tengan todas la misma altura */
+#proyectos .cards-grid,
+#skills-list {
+align-items: stretch;
 }
 
 /* Tarjetas de Proyectos */
