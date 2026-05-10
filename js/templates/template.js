@@ -24,6 +24,8 @@ export const header = `
       <li><a href="./contacto.html">Contacto</a></li>
     </ul>
 
+    <div id="weather-widget" class="weather-widget"></div>
+
     <button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Cambiar tema">
       <i data-lucide="moon"></i>
     </button>

@@ -4,6 +4,7 @@ import menu from './utils/menu.js';
 import skillsList from './utils/skillsList.js';
 import cheatsheetsList from './utils/cheatsheetsList.js';
 import resourcesGenerator from './utils/resourcesGenerator.js';
+import weather from './utils/weather.js';
 
 const headerContainer = document.getElementById('header');
 const footerContainer = document.getElementById('footer');
@@ -31,6 +32,7 @@ cheatsheetsList();
 resourcesGenerator();
 darkMode();
 menu();
+weather();
 
 if (window.lucide) {
   lucide.createIcons();
