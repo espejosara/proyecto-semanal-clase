@@ -813,6 +813,34 @@ border-radius: 999px;
 font-size: var(--fs-xs);
 }
 
+/* Tarjetas de Proyectos */
+.project-card {
+background-color: var(--white);
+border: var(--border);
+border-radius: var(--radius-md);
+box-shadow: var(--shadow-sm);
+padding: var(--space-lg);
+display: flex;
+flex-direction: column;
+}
+
+.project-card h3 {
+color: var(--primary);
+font-size: var(--fs-xl);
+margin-bottom: var(--space-xs);
+}
+
+.project-card p {
+flex-grow: 1; /* Permite que el texto ocupe el espacio sobrante, empujando los botones hacia abajo */
+}
+
+.project-links {
+display: flex;
+gap: var(--space-sm);
+margin-top: var(--space-md);
+flex-wrap: wrap;
+}
+
 /* =============== DARK MODE =============== */
 
 /*
@@ -882,7 +910,8 @@ background-color: rgba(255, 255, 255, 0.05);
 /* Tarjetas (Skills, About, Values) */
 body.dark-mode .skill-card,
 body.dark-mode .about-card,
-body.dark-mode .value-card {
+body.dark-mode .value-card,
+body.dark-mode .project-card {
 background-color: #1e2136;
 border: 1px solid rgba(255, 255, 255, 0.05);
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -890,13 +919,15 @@ box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 
 body.dark-mode .skill-card h3,
 body.dark-mode .about-card h3,
-body.dark-mode .value-card h3 {
+body.dark-mode .value-card h3,
+body.dark-mode .project-card h3 {
 color: #f8fafc;
 }
 
 body.dark-mode .skill-card p,
 body.dark-mode .about-card p,
-body.dark-mode .value-card p {
+body.dark-mode .value-card p,
+body.dark-mode .project-card p {
 color: #94a3b8;
 }
 
@@ -1347,8 +1378,14 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     max-width: 100%;
   }
 
-  .values-grid {
+  .values-grid,
+  .cards-grid,
+  #skills-list {
     grid-template-columns: 1fr;
+  }
+
+  .project-links {
+    flex-direction: column;
   }
 
   /* Aumentamos un poco la letra del código en móviles para mejor lectura */
