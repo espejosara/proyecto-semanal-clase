@@ -266,6 +266,41 @@ opacity: 0;
 transform: rotate(-45deg) translate(7px, -7px);
 }
 
+/* Widget del clima (Header) */
+.weather-widget {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 0 var(--space-md);
+}
+
+.weather-info {
+display: flex;
+align-items: center;
+gap: 0.25rem;
+}
+
+.weather-icon {
+width: 28px;
+height: 28px;
+object-fit: contain;
+}
+
+.weather-temp {
+font-weight: var(--font-bold);
+color: var(--primary);
+font-size: var(--fs-sm);
+}
+
+.weather-city {
+font-size: 0.65rem;
+color: var(--grey-dark);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-top: -4px;
+}
+
 .hero {
 margin-bottom: var(--space-2xl);
 }
@@ -916,6 +951,14 @@ body.dark-mode .dropdown-menu a:hover {
 background-color: rgba(255, 255, 255, 0.05);
 }
 
+/* Weather Widget en modo oscuro */
+body.dark-mode .weather-temp {
+color: #e2e8f0;
+}
+body.dark-mode .weather-city {
+color: #94a3b8;
+}
+
 /* Tarjetas (Skills, About, Values) */
 body.dark-mode .skill-card,
 body.dark-mode .about-card,
@@ -1259,13 +1302,18 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
   #dark-mode-toggle {
     order: 1;
   }
+  .weather-widget {
+    order: 2;
+    margin: 0 auto 0 var(--space-sm);
+  }
+  .weather-city {
+    display: none; /* Ocultamos la ciudad en móvil para que quepa bien el menú */
+  }
   .logo {
     order: 2;
-    margin: 0 auto; /* Centra el logo en la pantalla */
-    transform: translateX(-15px); /* Ajuste visual ligero para que quede perfectamente centrado */
   }
   .hamburger {
-    order: 3;
+    order: 4;
   }
 
   .hamburger {
