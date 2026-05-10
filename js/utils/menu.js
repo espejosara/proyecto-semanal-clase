@@ -29,6 +29,18 @@ const menu = () => {
       document.body.style.overflow = '';
     });
   });
+
+  // Cerrar el menú al hacer clic fuera de él
+  document.addEventListener('click', (e) => {
+    const isClickInsideMenu = navLinks.contains(e.target);
+    const isClickOnHamburger = hamburger.contains(e.target);
+
+    if (navLinks.classList.contains('active') && !isClickInsideMenu && !isClickOnHamburger) {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 };
 
 export default menu;

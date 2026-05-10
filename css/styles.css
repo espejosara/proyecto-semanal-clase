@@ -1329,17 +1329,19 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     flex-direction: column;
     position: fixed;
     top: 80px;
-    left: 0;
-    width: 100%;
+    right: 0;
+    left: auto;
+    width: 75%;
+    max-width: 300px;
     height: calc(100vh - 80px);
     background-color: var(--white);
-    padding: 10vh var(--space-lg);
-    align-items: center;
-    gap: var(--space-2xl);
+    padding: var(--space-2xl) var(--space-xl);
+    align-items: flex-start;
+    gap: var(--space-xl);
     z-index: 999;
     border-radius: 0;
-    box-shadow: none;
-    animation: slideDownMenu 0.3s ease forwards;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    animation: slideInRight 0.3s ease forwards;
   }
 
   .nav-list.active a {
