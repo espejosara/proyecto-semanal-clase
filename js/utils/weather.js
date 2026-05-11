@@ -22,7 +22,7 @@ const weather = () => {
       `;
     } catch (error) {
       console.error("Error al obtener el clima:", error);
-      widget.innerHTML = `<span style="font-size: 0.8rem; color: gray;">Clima no disponible</span>`;
+      widget.innerHTML = `<span class="weather-error">Clima no disponible</span>`;
     }
   };
 

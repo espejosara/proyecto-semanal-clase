@@ -13,7 +13,7 @@ export const header = `
       <li><a href="./about.html">About</a></li>
       <li><a href="./index.html#skills">Skills</a></li>
       <li class="dropdown">
-        <a href="#" id="cheatsheets-toggle" style="display:flex; align-items:center; gap:4px;">Cheatsheets <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i></a>
+        <a href="#" id="cheatsheets-toggle" class="nav-dropdown-toggle">Cheatsheets <i data-lucide="chevron-down"></i></a>
         <ul class="dropdown-menu">
           <li><a href="./cheatsheet-html.html">HTML5</a></li>
           <li><a href="./cheatsheet-css.html">CSS3</a></li>

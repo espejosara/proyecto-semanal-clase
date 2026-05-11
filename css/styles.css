@@ -179,6 +179,17 @@ color: var(--secondary);
 width: 100%;
 }
 
+/* Botón desplegable del menú */
+.nav-dropdown-toggle {
+display: flex;
+align-items: center;
+gap: 4px;
+}
+.nav-dropdown-toggle i {
+width: 16px;
+height: 16px;
+}
+
 /* Desplegable (Dropdown) Desktop */
 .dropdown {
 position: relative;
@@ -277,6 +288,11 @@ color: var(--grey-dark);
 text-transform: uppercase;
 letter-spacing: 0.5px;
 margin-top: -4px;
+}
+
+.weather-error {
+font-size: 0.8rem;
+color: var(--grey);
 }
 
 .hero {
@@ -794,6 +810,7 @@ height: 64px;
 object-fit: contain;
 margin: 0 auto var(--space-sm);
 display: block;
+color: var(--primary);
 }
 
 .skill-card h3 {
