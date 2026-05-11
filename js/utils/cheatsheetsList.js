@@ -4,12 +4,10 @@ const cheatsheetsList = () => {
   const container = document.getElementById('cheatsheets');
   if (!container) return;
 
-  // Reutilizamos el estilo del grid de skills
   const listContainer = document.createElement('div');
   listContainer.id = 'skills-list'; 
 
   cheatsheets.forEach(sheet => {
-    // Toda la tarjeta es un enlace <a> para ser clickable, como pedía el ejercicio
     const card = document.createElement('a');
     card.href = sheet.link;
     card.className = 'skill-card'; 

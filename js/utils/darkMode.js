@@ -3,7 +3,7 @@ const darkMode = () => {
   const body = document.body;
   if (!button) return;
 
-  // 1. FUNCIÓN QUE APLICA EL CAMBIO Y GUARDA
+  // Aplica el cambio de tema y lo guarda en localStorage
   const aplicarModo = (activar) => {
     body.classList.toggle("dark-mode", activar);
     
@@ -13,7 +13,7 @@ const darkMode = () => {
     localStorage.setItem("theme", activar);
   };
 
-  // 2. FUNCIÓN QUE CARGA LO QUE HABÍA GUARDADO AL ABRIR LA WEB
+  // Carga la preferencia guardada o la del sistema
   const cargarPreferencia = () => {
     const guardado = localStorage.getItem("theme");
 
@@ -28,7 +28,6 @@ const darkMode = () => {
 
   cargarPreferencia();
 
-  // 3. EVENTO CLICK
   button.addEventListener("click", () => {
     const estaActivo = body.classList.contains("dark-mode");
     aplicarModo(!estaActivo);

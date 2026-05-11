@@ -4,7 +4,7 @@ const resourcesGenerator = () => {
   const container = document.getElementById('recursos-container');
   if (!container) return;
 
-  // Crear las tabs usando el método del profesor (.map)
+  // Generar navegación de tabs
   const tabsHTML = `
     <div class="tabs-nav">
       ${resources.map((category, index) => `
@@ -15,7 +15,7 @@ const resourcesGenerator = () => {
     </div>
   `;
 
-  // Crear el contenido de cada tab
+  // Generar contenido de cada panel
   const tabsContentHTML = `
     <div class="tabs-content">
       ${resources.map((category, index) => `
@@ -33,10 +33,9 @@ const resourcesGenerator = () => {
     </div>
   `;
 
-  // Insertar en el DOM de golpe (mucho más eficiente)
+  // Insertar en el DOM
   container.innerHTML = tabsHTML + tabsContentHTML;
 
-  // Funcionalidad de las tabs
   const tabButtons = container.querySelectorAll('.tab-btn');
   const tabPanels = container.querySelectorAll('.tab-pane');
 
@@ -44,11 +43,9 @@ const resourcesGenerator = () => {
     button.addEventListener('click', () => {
       const categoryIndex = button.dataset.category;
 
-      // Remover active de todos
       tabButtons.forEach(btn => btn.classList.remove('active'));
       tabPanels.forEach(panel => panel.classList.remove('active'));
 
-      // Añadir active al seleccionado
       button.classList.add('active');
       container.querySelector(`[data-panel="${categoryIndex}"]`).classList.add('active');
     });
