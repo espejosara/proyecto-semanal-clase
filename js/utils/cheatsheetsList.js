@@ -5,7 +5,7 @@ const cheatsheetsList = () => {
   if (!container) return;
 
   const listContainer = document.createElement('div');
-  listContainer.id = 'skills-list'; 
+  listContainer.className = 'cards-grid'; 
 
   cheatsheets.forEach(sheet => {
     const card = document.createElement('a');

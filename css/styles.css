@@ -983,7 +983,7 @@ body.dark-mode .skill-card p,
 body.dark-mode .value-card p,
 body.dark-mode .section-subtitle,
 body.dark-mode .footer-content p {
-color: #dfe8fb;
+color: var(--text-dark);
 }
 
 body.dark-mode h1,
