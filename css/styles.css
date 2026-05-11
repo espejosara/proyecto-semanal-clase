@@ -2,15 +2,9 @@
 :root {
 /* Colores principales */
 --primary: #7C5CFF;
-/* lilac / mejor contraste */
 --secondary: #f2a7c0;
-/* rosa pastel */
 --accent: #89c2ff;
-/* celeste */
 --highlight: #fde2ec;
-/* rosa muy clarito */
---success: #a8dadc;
-/* azul verdoso suave */
 
 /* Neutros */
 --dark: #2b2d42;
@@ -22,7 +16,6 @@
 
 /* Typography */
 --font-family: 'Roboto', sans-serif;
---font-light: 300;
 --font-regular: 400;
 --font-medium: 500;
 --font-bold: 700;
@@ -30,23 +23,14 @@
 
 /* Tamaños de fuente */
 --fs-xs: 0.75rem;
-/* 12px */
 --fs-sm: 0.875rem;
-/* 14px */
 --fs-base: 1rem;
-/* 16px */
 --fs-lg: 1.125rem;
-/* 18px */
 --fs-xl: 1.25rem;
-/* 20px */
 --fs-2xl: 1.5rem;
-/* 24px */
 --fs-3xl: 1.875rem;
-/* 30px */
 --fs-4xl: 2.25rem;
-/* 36px */
 --fs-5xl: 3rem;
-/* 48px */
 
 /* Spacing */
 --space-xs: 0.5rem;
@@ -55,7 +39,6 @@
 --space-lg: 1.5rem;
 --space-xl: 2rem;
 --space-2xl: 3rem;
---space-3xl: 5rem;
 
 /* Layout */
 --max-width: 1200px;
@@ -96,19 +79,17 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-outline: 3px solid rgba(124, 92, 255, 0.5); /* Anillo lila en lugar de celeste */
+outline: 3px solid rgba(124, 92, 255, 0.5);
 outline-offset: 3px;
 border-radius: var(--radius-sm);
 }
 
-/* Paragraphs: contrast and readability */
 p,
 .hero-text p,
 .about-card p,
 .skill-card p,
 .value-card p {
 color: #3b3f55;
-/* stronger contrast than previous grey */
 line-height: 1.9;
 font-size: var(--fs-base);
 letter-spacing: 0.15px;
@@ -119,7 +100,6 @@ margin-bottom: var(--space-md);
 color: #94a3b8;
 }
 
-/* Links inside paragraphs should remain high contrast */
 p a {
 color: var(--primary);
 text-decoration: underline;
@@ -226,18 +206,17 @@ opacity: 1;
 visibility: visible;
 transform: translateY(0);
 }
-.dropdown-menu a::after { display: none; /* Quitamos la línea de abajo */ }
+.dropdown-menu a::after { display: none; }
 .dropdown-menu a { padding: var(--space-xs) var(--space-lg); display: block; }
 .dropdown-menu a:hover {
 background-color: var(--grey-light);
 color: var(--primary);
 }
 
-/* hamburguer (desktop) */
+/* Hamburger */
 
 .hamburger {
 display: none;
-/* oculto en pantallas grandes */
 flex-direction: column;
 justify-content: space-between;
 width: 30px;
@@ -253,7 +232,6 @@ border-radius: 2px;
 transition: all var(--transition-medium);
 }
 
-/* Animación hamburguesa activa (forma X) */
 .hamburger.active span:nth-child(1) {
 transform: rotate(45deg) translate(7px, 7px);
 }
@@ -315,7 +293,6 @@ gap: var(--space-lg);
 .hero-image-container {
 width: 100%;
 aspect-ratio: 16 / 9;
-/* aquí decides lo achatada */
 overflow: hidden;
 border-radius: var(--radius-lg);
 }
@@ -389,7 +366,6 @@ height: 18px;
 
 .btn-primary {
 background-color: var(--primary);
-/* stronger, higher contrast */
 color: var(--white);
 border-color: transparent;
 box-shadow: 0 6px 18px rgba(91, 110, 225, 0.18);
@@ -397,7 +373,7 @@ box-shadow: 0 6px 18px rgba(91, 110, 225, 0.18);
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-background-color: #5c38f5; /* Un violeta profundo, sin azul */
+background-color: #5c38f5;
 color: var(--white);
 transform: translateY(-2px);
 box-shadow: 0 10px 30px rgba(92, 56, 245, 0.25);
@@ -405,10 +381,8 @@ box-shadow: 0 10px 30px rgba(92, 56, 245, 0.25);
 
 .btn-secondary {
 background-color: rgba(124, 92, 255, 0.08);
-/* Fondo lila muy suave */
 color: var(--primary);
 border: 2px solid rgba(124, 92, 255, 0.4);
-/* Borde semi-transparente */
 }
 
 .btn-secondary:hover,
@@ -419,7 +393,6 @@ border-color: var(--primary);
 box-shadow: 0 8px 24px rgba(91, 110, 225, 0.12);
 }
 
-/* Make interactive elements more visible when focused */
 button:focus-visible,
 a.btn:focus-visible {
 outline: 3px solid rgba(124, 92, 255, 0.3);
@@ -568,8 +541,8 @@ margin: var(--space-xs) 0;
 transition: transform var(--transition-fast), color var(--transition-fast);
 }
 #dark-mode-toggle:hover {
-color: var(--primary); /* Le damos el morado primario al pasar el mouse */
-transform: rotate(-15deg); /* Movimiento para la luna */
+color: var(--primary);
+transform: rotate(-15deg);
 }
 
 
@@ -607,14 +580,12 @@ transform: scale(1);
 }
 }
 
-@keyframes slideDownMenu {
+@keyframes slideInRight {
 from {
-opacity: 0;
-transform: translateY(-10px);
+transform: translateX(100%);
 }
 to {
-opacity: 1;
-transform: translateY(0);
+transform: translateX(0);
 }
 }
 
@@ -779,7 +750,9 @@ color: var(--grey-dark);
 margin-bottom: 0;
 }
 
-/* Skills list y Cards del escaparate */
+/* =============== SKILLS & PROYECTOS =============== */
+
+/* --- SKILLS --- */
 #skills-list,
 .cards-grid {
 display: grid;
@@ -801,14 +774,14 @@ flex-direction: column;
 transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
-/* Efecto HOVER (Para el ratón en el ordenador: la tarjeta se eleva) */
+/* Efecto HOVER */
 a.skill-card:hover {
 transform: translateY(-5px);
 box-shadow: var(--shadow-md);
 border-color: var(--secondary);
 }
 
-/* Efecto ACTIVE (Para el dedo en el móvil: la tarjeta se hunde y oscurece) */
+/* Efecto ACTIVE */
 a.skill-card:active {
 transform: translateY(0);
 box-shadow: var(--shadow-sm);
@@ -857,7 +830,7 @@ font-size: var(--fs-xs);
 align-items: stretch;
 }
 
-/* Tarjetas de Proyectos */
+/* --- PROYECTOS --- */
 .project-card {
 background-color: var(--white);
 border: var(--border);
@@ -875,7 +848,7 @@ margin-bottom: var(--space-xs);
 }
 
 .project-card p {
-flex-grow: 1; /* Permite que el texto ocupe el espacio sobrante, empujando los botones hacia abajo */
+flex-grow: 1;
 }
 
 .project-links {
@@ -887,22 +860,13 @@ flex-wrap: wrap;
 
 /* =============== DARK MODE =============== */
 
-/*
-* Reglas generales del modo oscuro
-*/
 body.dark-mode {
 background-color: #131521;
-/* Azul noche profundo */
 color: #e2e8f0;
-/* Texto principal claro y suave */
 }
 
-/*
-* Componentes en modo oscuro
-*/
 body.dark-mode header {
 background-color: #1e2136;
-/* Un tono más claro para elevar el header */
 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -917,7 +881,6 @@ color: var(--secondary);
 
 body.dark-mode .logo {
 color: var(--primary);
-/* Mantenemos el color de marca, resalta bien en fondo oscuro */
 }
 
 body.dark-mode .btn-secondary {
@@ -933,10 +896,8 @@ color: #fff;
 border-color: #a5b4fc;
 }
 
-/* Arreglo para el menú móvil en modo oscuro */
 body.dark-mode .nav-list.active {
 background-color: #131521;
-/* Azul noche para ocupar la pantalla completa fluidamente */
 border: none;
 box-shadow: none;
 }
@@ -998,7 +959,6 @@ background-color: rgba(124, 92, 255, 0.15);
 color: #b59eff;
 }
 
-/* Dark mode paragraphs */
 body.dark-mode p,
 body.dark-mode .hero-text p,
 body.dark-mode .about-card p,
@@ -1009,7 +969,6 @@ body.dark-mode .footer-content p {
 color: #dfe8fb;
 }
 
-/* Headings contrast */
 body.dark-mode h1,
 body.dark-mode h2 {
 color: #f8fafc;
@@ -1017,17 +976,14 @@ color: #f8fafc;
 
 body.dark-mode .hero-text h1 {
 color: var(--primary);
-/* Mantener el branding */
 }
 
-/* Footer contrast */
 body.dark-mode .footer-content {
 color: #94a3b8;
 }
 
-/* Dark mode toggle icon contrast */
 body.dark-mode #dark-mode-toggle {
-color: #fbbf24; /* Color sol cálido */
+color: #fbbf24;
 }
 
 body.dark-mode #dark-mode-toggle:hover {
@@ -1088,25 +1044,24 @@ color: #bfe1ff;
 /* =============== CHEATSHEETS PAGE =============== */
 
 .cheatsheet-page {
-display: block; /* Quitamos las dos columnas */
+display: block;
 }
 
 .sticky-nav {
 position: sticky;
-top: 80px; /* Justo debajo del header principal (que mide 80px) */
-z-index: 90; /* Por debajo del header pero por encima del texto */
+top: 80px;
+z-index: 90;
 background-color: var(--white);
 padding: var(--space-sm) var(--space-md);
 border-radius: var(--radius-md);
 box-shadow: var(--shadow-sm);
 border: var(--border);
 margin-bottom: var(--space-xl);
-overflow-x: auto; /* Permite scroll horizontal en móviles */
-scrollbar-width: thin; /* Barra finita en Firefox */
+overflow-x: auto;
+scrollbar-width: thin;
 scrollbar-color: var(--grey) transparent;
 }
 
-/* Diseñamos una barra de scroll finita y elegante en Chrome/Safari */
 .sticky-nav::-webkit-scrollbar {
 height: 4px;
 }
@@ -1119,15 +1074,15 @@ border-radius: 4px;
 }
 
 .sticky-nav h3 {
-display: none; /* Ocultamos el título "Contenido" para ahorrar espacio */
+display: none;
 }
 
 .sticky-nav ul {
 display: flex;
-flex-direction: row; /* Ponemos la lista en horizontal */
+flex-direction: row;
 gap: var(--space-sm);
-width: max-content; /* Evita que los botones se aplasten si no caben */
-padding-bottom: 6px; /* Espacio para que respire con la barra de scroll */
+width: max-content;
+padding-bottom: 6px;
 }
 
 .sticky-nav a {
@@ -1136,9 +1091,9 @@ font-weight: var(--font-medium);
 font-size: var(--fs-sm);
 background-color: var(--grey-light);
 padding: var(--space-xs) var(--space-md);
-border-radius: 999px; /* Botones redonditos tipo píldora */
+border-radius: 999px;
 transition: all var(--transition-fast);
-white-space: nowrap; /* Evita que las palabras se partan o deformen */
+white-space: nowrap;
 }
 
 .sticky-nav a:hover {
@@ -1146,22 +1101,20 @@ background-color: var(--primary);
 color: var(--white);
 }
 
-/* Bloques de código tipo Editor */
 .cheatsheet-content pre {
-background-color: #1e1e1e; /* Fondo oscuro tipo VS Code */
-color: #d4d4d4; /* Texto claro */
-padding: 3rem var(--space-md) var(--space-md); /* Espacio arriba para los botones */
+background-color: #1e1e1e;
+color: #d4d4d4;
+padding: 3rem var(--space-md) var(--space-md);
 border-radius: var(--radius-md);
-overflow-x: auto; /* Scroll horizontal si el código es muy largo */
-font-family: 'Fira Code', Consolas, Monaco, 'Courier New', monospace; /* Tipografía más de código */
+overflow-x: auto;
+font-family: 'Fira Code', Consolas, Monaco, 'Courier New', monospace;
 font-size: var(--fs-sm);
 line-height: 1.6;
 margin-bottom: var(--space-lg);
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Sombra exterior elegante */
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 position: relative;
 }
 
-/* Botoncitos estilo Mac (Rojo, Amarillo, Verde) */
 .cheatsheet-content pre::before {
 content: '';
 position: absolute;
@@ -1174,7 +1127,6 @@ background-color: #ff5f56;
 box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
 }
 
-/* Scrollbar personalizada para las cajas de código */
 .cheatsheet-content pre::-webkit-scrollbar {
 height: 8px;
 }
@@ -1191,7 +1143,6 @@ border-radius: 4px;
 font-family: inherit;
 }
 
-/* Código en línea (fuera de las cajas negras) */
 p code, li code {
 background-color: var(--grey-light);
 color: var(--primary);
@@ -1298,7 +1249,6 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     padding: var(--space-sm) var(--space-md);
   }
   
-  /* Reordenamos la barra superior por UX (Modo Oscuro -> Logo -> Hamburguesa) */
   #dark-mode-toggle {
     order: 1;
   }
@@ -1307,7 +1257,7 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     margin: 0 auto 0 var(--space-sm);
   }
   .weather-city {
-    display: none; /* Ocultamos la ciudad en móvil para que quepa bien el menú */
+    display: none;
   }
   .logo {
     order: 2;
@@ -1349,7 +1299,6 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     font-weight: var(--font-bold);
   }
 
-  /* Sub-enlaces más pequeños en móvil para notar la jerarquía */
   .nav-list.active .dropdown-menu a {
     font-size: var(--fs-xl);
     font-weight: var(--font-medium);
@@ -1357,7 +1306,6 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
   }
   body.dark-mode .nav-list.active .dropdown-menu a { color: #94a3b8; }
 
-  /* Dropdown en móvil */
   .dropdown-menu {
     position: static;
     opacity: 1;
@@ -1366,7 +1314,7 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     box-shadow: none;
     background: transparent;
     padding: 0;
-    display: none; /* Oculto hasta que le den click al toggle */
+    display: none;
     align-items: center;
     margin-top: var(--space-md);
     gap: var(--space-md);
@@ -1447,7 +1395,6 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     flex-direction: column;
   }
 
-  /* Aumentamos un poco la letra del código en móviles para mejor lectura */
   .cheatsheet-content pre {
     font-size: 0.95rem; 
   }
