@@ -25,7 +25,12 @@
       </p>
 
       <div class="contact-container">
-        <form class="contact-form">
+        <form action="https://formsubmit.co/TU_CORREO_AQUI@ejemplo.com" method="POST" class="contact-form">
+
+          <!-- Configuración oculta de FormSubmit -->
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde CV Portfolio">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
 
           <div class="form-group">
             <label for="nombre">Nombre</label>
