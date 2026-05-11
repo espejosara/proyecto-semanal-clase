@@ -2,11 +2,11 @@ export const header = `
   <nav class="nav-container">
     <a class="logo" href="./index.html"><strong>SE</strong></a>
 
-    <div class="hamburger" id="hamburger">
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Abrir menú">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
 
     <ul class="nav-list" id="nav-links">
       <li><a href="./index.html">Home</a></li>

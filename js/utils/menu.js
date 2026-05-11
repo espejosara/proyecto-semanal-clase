@@ -8,6 +8,9 @@ const menu = () => {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    
+    const isActive = hamburger.classList.contains('active');
+    hamburger.setAttribute('aria-expanded', isActive);
     document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
   });
 
@@ -21,6 +24,7 @@ const menu = () => {
 
       hamburger.classList.remove('active');
       navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });
@@ -33,6 +37,7 @@ const menu = () => {
     if (navLinks.classList.contains('active') && !isClickInsideMenu && !isClickOnHamburger) {
       hamburger.classList.remove('active');
       navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
   });

@@ -1411,3 +1411,16 @@ body.dark-mode .resources-list li { background-color: #1e2136; border-color: rgb
     line-height: 2;
   }
 }
+
+/* =============== ACCESIBILIDAD =============== */
+/* Desactiva animaciones para usuarios que prefieren movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
